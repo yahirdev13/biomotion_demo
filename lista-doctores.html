@@ -19,6 +19,8 @@
 .doctor-stat-val{font-family:var(--font-display);font-size:22px;font-weight:500;color:var(--text-primary)}
 .doctor-stat-lbl{font-size:11px;color:var(--text-muted);margin-top:2px}
 .doctors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:1024px){.doctors-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.doctors-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
