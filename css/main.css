@@ -282,3 +282,108 @@ td.actions{text-align:right;white-space:nowrap}
 .info-label{font-size:12.5px;color:var(--text-muted);font-weight:500;min-width:140px;flex-shrink:0}
 .info-value{font-size:13.5px;color:var(--text-primary)}
 .info-value.mono{font-family:var(--font-mono);font-size:12.5px}
+
+/* ---------------------------------------------------------
+   Mobile drawer, overlay, toast (shared across breakpoints)
+   --------------------------------------------------------- */
+.hamburger{display:none;width:36px;height:36px;border-radius:8px;border:1px solid var(--border-default);background:var(--bg-surface);color:var(--text-primary);cursor:pointer;padding:0;align-items:center;justify-content:center;flex-shrink:0}
+.hamburger:hover{background:var(--stone-100)}
+.hamburger svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:oklch(0% 0 0 / .42);z-index:40;animation:overlay-in .18s ease}
+body.sidebar-open .sidebar-overlay{display:block}
+@keyframes overlay-in{from{opacity:0}to{opacity:1}}
+
+.toast-container{position:fixed;bottom:20px;right:20px;z-index:100;display:flex;flex-direction:column;gap:8px;pointer-events:none;max-width:calc(100vw - 40px)}
+.toast{background:var(--teal-900);color:#fff;padding:10px 14px;border-radius:10px;font-size:13px;font-weight:500;box-shadow:0 6px 20px oklch(15% .035 200 / .25);animation:toast-in .2s ease;pointer-events:auto;display:flex;align-items:center;gap:8px}
+.toast.ok{background:var(--success-700)}
+.toast.info{background:var(--info-700)}
+.toast svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+@keyframes toast-in{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}
+@keyframes toast-out{to{transform:translateY(8px);opacity:0}}
+.toast.leaving{animation:toast-out .18s ease forwards}
+
+/* ---------------------------------------------------------
+   Tablet (<=1024px)
+   --------------------------------------------------------- */
+@media (max-width: 1024px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .kpis-3{grid-template-columns:repeat(2,1fr)}
+  .charts-row{grid-template-columns:1fr !important}
+  .grid-main{grid-template-columns:1fr}
+  .pos-layout{grid-template-columns:1fr;height:auto}
+  .pos-cart{max-height:420px}
+  .profile-hero{gap:16px}
+  .form-wrap{max-width:100%}
+  .topbar{padding:12px 18px}
+  .content{padding:20px 18px}
+}
+
+/* ---------------------------------------------------------
+   Mobile (<=768px) — sidebar becomes off-canvas drawer
+   --------------------------------------------------------- */
+@media (max-width: 768px){
+  .app{grid-template-columns:1fr;height:auto;overflow:visible}
+  .main{height:auto;min-height:100vh;overflow-y:visible}
+  .sidebar{position:fixed;top:0;left:0;width:260px;max-width:82vw;z-index:50;transform:translateX(-100%);transition:transform .22s ease;will-change:transform}
+  body.sidebar-open .sidebar{transform:translateX(0);box-shadow:0 10px 40px oklch(15% .035 200 / .35)}
+  .hamburger{display:inline-flex}
+  .topbar{padding:10px 14px;gap:10px;position:sticky;top:0}
+  .search{max-width:none;flex:1;min-width:0}
+  .search input{height:34px;font-size:13px}
+  .topbar-actions{gap:6px}
+  .topbar-actions .btn{padding:6px 10px;font-size:12px}
+  .topbar-actions .btn svg{width:12px;height:12px}
+  .content{padding:16px 14px;gap:16px}
+  .page-header{align-items:flex-start}
+  .page-title{font-size:22px}
+  .page-sub{font-size:13px}
+  .page-actions{flex-wrap:wrap}
+  .kpis,.kpis-3{grid-template-columns:repeat(2,1fr);gap:10px}
+  .kpi{padding:14px}
+  .kpi-value{font-size:24px}
+  .card-body{padding:16px}
+  .card-header{padding:14px 16px;flex-wrap:wrap}
+  .form-row,.form-row-3{grid-template-columns:1fr;gap:12px}
+  .rx-item-row{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:repeat(3,1fr);gap:8px}
+  .stat-box{padding:12px}
+  .stat-box-value{font-size:20px}
+  .profile-hero{flex-direction:column;align-items:stretch;padding:20px;gap:14px}
+  .profile-name{font-size:20px}
+  .profile-meta{gap:10px 20px;margin-top:8px}
+  .profile-actions{flex-wrap:wrap}
+  .pos-products-grid{grid-template-columns:repeat(2,1fr);padding:14px;gap:10px}
+  .pos-product{padding:12px}
+  .pos-product-price{font-size:16px}
+  .pos-cart{max-height:none}
+  .cal-day{min-height:58px;padding:4px}
+  .cal-day-num{width:20px;height:20px;font-size:12px}
+  .cal-event{font-size:9.5px;padding:1px 4px;margin-top:2px}
+  .cal-dow{padding:6px 2px;font-size:10px}
+  .cal-month{font-size:16px}
+  .agenda-item{grid-template-columns:52px 1fr;padding:12px 14px;gap:10px}
+  .agenda-status{grid-column:1 / -1;justify-self:start;margin-top:4px}
+  .info-row{flex-direction:column;gap:2px;padding:8px 0}
+  .info-label{min-width:0}
+  table{font-size:13px}
+  thead th,tbody td{padding:10px 12px}
+  .form-actions{flex-wrap:wrap}
+  .form-actions .btn{flex:1;justify-content:center;min-width:0}
+  .toast-container{right:12px;bottom:12px;left:12px;align-items:flex-end}
+  .toast{max-width:100%}
+}
+
+/* ---------------------------------------------------------
+   Small phone (<=480px)
+   --------------------------------------------------------- */
+@media (max-width: 480px){
+  .kpis,.kpis-3{grid-template-columns:1fr}
+  .pos-products-grid{grid-template-columns:1fr}
+  .page-title{font-size:20px}
+  .topbar-date{display:none}
+  .tab-group{flex-wrap:wrap}
+  .profile-tags{gap:4px}
+  .profile-meta{gap:8px 16px}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .sidebar{width:240px}
+}

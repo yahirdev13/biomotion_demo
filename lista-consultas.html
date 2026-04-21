@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=fraunces:400,500,600|figtree:400,500,600,700|ibm-plex-mono:400,500" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
+<script defer src="js/app.js"></script>
 </head>
 <body>
 <div class="app">
@@ -52,9 +53,9 @@
         </div>
         <div class="page-actions">
           <div class="tab-group">
-            <button class="tab active">Hoy</button>
-            <button class="tab">Esta semana</button>
-            <button class="tab">Este mes</button>
+            <button class="tab active" data-filter="today">Hoy</button>
+            <button class="tab" data-filter="week">Esta semana</button>
+            <button class="tab" data-filter="month">Este mes</button>
           </div>
         </div>
       </div>
@@ -80,7 +81,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr data-status="today week month">
                 <td><div class="patient-cell"><div class="patient-avatar">MG</div><div><div class="patient-name">María García H.</div><div class="patient-mrn">MRN-2026-0481</div></div></div></td>
                 <td>Fisioterapia · Sesión 8</td>
                 <td>Dr. Rodríguez</td>
@@ -89,7 +90,7 @@
                 <td class="num">09:00</td>
                 <td class="actions"><a href="formulario-consulta.html" class="btn btn-secondary btn-sm">Ver</a></td>
               </tr>
-              <tr>
+              <tr data-status="today week month">
                 <td><div class="patient-cell"><div class="patient-avatar teal">RD</div><div><div class="patient-name">Roberto Díaz H.</div><div class="patient-mrn">MRN-2026-0449</div></div></div></td>
                 <td>Consulta médica</td>
                 <td>Dra. Morales</td>
@@ -98,7 +99,7 @@
                 <td class="num">10:30</td>
                 <td class="actions"><a href="formulario-consulta.html" class="btn btn-secondary btn-sm">Ver</a></td>
               </tr>
-              <tr>
+              <tr data-status="today week month">
                 <td><div class="patient-cell"><div class="patient-avatar teal">PV</div><div><div class="patient-name">Patricia Vega M.</div><div class="patient-mrn">MRN-2026-0445</div></div></div></td>
                 <td>Valoración inicial</td>
                 <td>Dr. Rodríguez</td>
@@ -107,7 +108,7 @@
                 <td class="num">12:00</td>
                 <td class="actions"><a href="formulario-consulta.html" class="btn btn-secondary btn-sm">Ver</a></td>
               </tr>
-              <tr>
+              <tr data-status="today week month">
                 <td><div class="patient-cell"><div class="patient-avatar teal">CR</div><div><div class="patient-name">Carlos Ramírez L.</div><div class="patient-mrn">MRN-2026-0479</div></div></div></td>
                 <td>Fisioterapia · Sesión 9</td>
                 <td>Dra. Morales</td>
@@ -116,7 +117,7 @@
                 <td class="num">15:30</td>
                 <td class="actions"><a href="formulario-consulta.html" class="btn btn-secondary btn-sm">Ver</a></td>
               </tr>
-              <tr>
+              <tr data-status="week month">
                 <td><div class="patient-cell"><div class="patient-avatar">LP</div><div><div class="patient-name">Lucía Pérez D.</div><div class="patient-mrn">MRN-2026-0478</div></div></div></td>
                 <td>Revaloración</td>
                 <td>Dr. Rodríguez</td>
@@ -125,7 +126,7 @@
                 <td class="num">11:00</td>
                 <td class="actions"><a href="formulario-consulta.html" class="btn btn-secondary btn-sm">Ver</a></td>
               </tr>
-              <tr>
+              <tr data-status="week month">
                 <td><div class="patient-cell"><div class="patient-avatar teal">JA</div><div><div class="patient-name">Jorge Arellano V.</div><div class="patient-mrn">MRN-2026-0473</div></div></div></td>
                 <td>Nutrición</td>
                 <td>Dra. Salinas</td>
@@ -134,7 +135,7 @@
                 <td class="num">09:00</td>
                 <td class="actions"><a href="formulario-consulta.html" class="btn btn-secondary btn-sm">Ver</a></td>
               </tr>
-              <tr>
+              <tr data-status="month">
                 <td><div class="patient-cell"><div class="patient-avatar">SM</div><div><div class="patient-name">Sofía Méndez O.</div><div class="patient-mrn">MRN-2026-0468</div></div></div></td>
                 <td>Psicología</td>
                 <td>Psic. Luna</td>

@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=fraunces:400,500,600|figtree:400,500,600,700|ibm-plex-mono:400,500" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
+<script defer src="js/app.js"></script>
 </head>
 <body>
 <div class="app">
@@ -39,7 +40,7 @@
       <div class="search"><svg class="svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><input type="text" placeholder="Buscar medicamento o código…"></div>
       <div class="topbar-actions">
         <button class="icon-btn"><svg class="svg" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="notif-dot"></span></button>
-        <span style="font-family:var(--font-mono);font-size:13px;color:var(--text-muted)">20 abr 2026 · 11:42</span>
+        <span class="topbar-date" style="font-family:var(--font-mono);font-size:13px;color:var(--text-muted)">20 abr 2026 · 11:42</span>
       </div>
     </header>
 
@@ -63,55 +64,55 @@
       <!-- Productos -->
       <div class="card" style="overflow:hidden;display:flex;flex-direction:column">
         <div class="pos-products-grid" style="flex:1">
-          <button class="pos-product">
+          <button class="pos-product" data-sku="NAP-500" data-price="48">
             <div class="pos-product-icon"><svg class="svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 7v10M15 7v10M3 12h18"/></svg></div>
             <div class="pos-product-name">Naproxeno 500 mg</div>
             <div class="pos-product-sku">NAP-500 · Caja 20 tab</div>
             <div class="pos-product-price">$48.00</div>
           </button>
-          <button class="pos-product">
+          <button class="pos-product" data-sku="PAR-500" data-price="32">
             <div class="pos-product-icon"><svg class="svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 7v10M15 7v10M3 12h18"/></svg></div>
             <div class="pos-product-name">Paracetamol 500 mg</div>
             <div class="pos-product-sku">PAR-500 · Caja 20 tab</div>
             <div class="pos-product-price">$32.00</div>
           </button>
-          <button class="pos-product">
+          <button class="pos-product" data-sku="OME-20" data-price="65">
             <div class="pos-product-icon"><svg class="svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
             <div class="pos-product-name">Omeprazol 20 mg</div>
             <div class="pos-product-sku">OME-20 · Caja 14 cap</div>
             <div class="pos-product-price">$65.00</div>
           </button>
-          <button class="pos-product">
+          <button class="pos-product" data-sku="VITD3" data-price="120">
             <div class="pos-product-icon" style="background:var(--coral-100);color:var(--coral-700)"><svg class="svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div>
             <div class="pos-product-name">Vitamina D3 2000 UI</div>
             <div class="pos-product-sku">VITD3 · Frasco 30 tab</div>
             <div class="pos-product-price">$120.00</div>
           </button>
-          <button class="pos-product">
+          <button class="pos-product" data-sku="IBU-400" data-price="45">
             <div class="pos-product-icon"><svg class="svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 7v10M15 7v10M3 12h18"/></svg></div>
             <div class="pos-product-name">Ibuprofeno 400 mg</div>
             <div class="pos-product-sku">IBU-400 · Caja 20 tab</div>
             <div class="pos-product-price">$45.00</div>
           </button>
-          <button class="pos-product">
+          <button class="pos-product" data-sku="MAG-400" data-price="95">
             <div class="pos-product-icon" style="background:var(--coral-100);color:var(--coral-700)"><svg class="svg" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
             <div class="pos-product-name">Magnesio 400 mg</div>
             <div class="pos-product-sku">MAG-400 · Frasco 30 cap</div>
             <div class="pos-product-price">$95.00</div>
           </button>
-          <button class="pos-product">
+          <button class="pos-product" data-sku="DIC-GEL" data-price="78">
             <div class="pos-product-icon"><svg class="svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
             <div class="pos-product-name">Diclofenaco gel 1%</div>
             <div class="pos-product-sku">DIC-GEL · 50g</div>
             <div class="pos-product-price">$78.00</div>
           </button>
-          <button class="pos-product">
+          <button class="pos-product" data-sku="MET-500" data-price="55">
             <div class="pos-product-icon"><svg class="svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 7v10M15 7v10M3 12h18"/></svg></div>
             <div class="pos-product-name">Metformina 500 mg</div>
             <div class="pos-product-sku">MET-500 · Caja 30 tab</div>
             <div class="pos-product-price">$55.00</div>
           </button>
-          <button class="pos-product">
+          <button class="pos-product" data-sku="COL-HID" data-price="280">
             <div class="pos-product-icon" style="background:var(--coral-100);color:var(--coral-700)"><svg class="svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
             <div class="pos-product-name">Colágeno hidrolizado</div>
             <div class="pos-product-sku">COL-HID · 300g</div>
@@ -135,26 +136,35 @@
         </div>
 
         <div class="pos-cart-items">
-          <div class="pos-cart-item">
+          <div class="pos-cart-item" data-sku="NAP-500" data-qty="2" data-unit="48">
             <div>
               <div class="pos-cart-item-name">Naproxeno 500 mg</div>
               <div class="pos-cart-item-meta">NAP-500 · 2 cajas</div>
             </div>
-            <div class="pos-cart-item-price">$96.00</div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <div class="pos-cart-item-price">$96.00</div>
+              <button type="button" data-cart-remove aria-label="Quitar" style="background:none;border:none;color:var(--text-muted);cursor:pointer;padding:2px;font-size:16px;line-height:1">×</button>
+            </div>
           </div>
-          <div class="pos-cart-item">
+          <div class="pos-cart-item" data-sku="VITD3" data-qty="1" data-unit="120">
             <div>
               <div class="pos-cart-item-name">Vitamina D3 2000 UI</div>
               <div class="pos-cart-item-meta">VITD3 · 1 frasco</div>
             </div>
-            <div class="pos-cart-item-price">$120.00</div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <div class="pos-cart-item-price">$120.00</div>
+              <button type="button" data-cart-remove aria-label="Quitar" style="background:none;border:none;color:var(--text-muted);cursor:pointer;padding:2px;font-size:16px;line-height:1">×</button>
+            </div>
           </div>
-          <div class="pos-cart-item">
+          <div class="pos-cart-item" data-sku="OME-20" data-qty="1" data-unit="65">
             <div>
               <div class="pos-cart-item-name">Omeprazol 20 mg</div>
               <div class="pos-cart-item-meta">OME-20 · 1 caja</div>
             </div>
-            <div class="pos-cart-item-price">$65.00</div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <div class="pos-cart-item-price">$65.00</div>
+              <button type="button" data-cart-remove aria-label="Quitar" style="background:none;border:none;color:var(--text-muted);cursor:pointer;padding:2px;font-size:16px;line-height:1">×</button>
+            </div>
           </div>
         </div>
 
