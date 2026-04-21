@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Biomotion · Agendar Cita</title>
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=fraunces:400,500,600|figtree:400,500,600,700|ibm-plex-mono:400,500" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-tenant"><div class="tenant-avatar">BI</div><div class="tenant-info"><div class="tenant-name">Clínica Biomotion</div><div class="tenant-role">Cuautla · Morelos</div></div></div>
+    <div class="sidebar-logo"><div class="sidebar-logo-mark">B</div><div class="sidebar-logo-text">Biomotion</div></div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Operación</div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Panel</a>
+        <a href="lista-pacientes.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Pacientes<span class="sidebar-badge">12</span></a>
+        <a href="lista-doctores.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Doctores</a>
+        <a href="calendario-citas.html" class="sidebar-link active"><svg class="svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Agenda</a>
+        <a href="lista-consultas.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>Consultas</a>
+      </nav>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Farmacia</div>
+      <nav class="sidebar-nav">
+        <a href="pos.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>Punto de Venta</a>
+        <a href="inventario.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>Inventario</a>
+        <a href="lista-medicamentos.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 7v10M15 7v10M3 12h18"/></svg>Medicamentos</a>
+      </nav>
+    </div>
+    <div class="sidebar-foot"><div class="sidebar-foot-avatar">DR</div><div class="sidebar-foot-info"><div class="sidebar-foot-name">Dr. Rodríguez</div><div class="sidebar-foot-role">Médico · Fisioterapeuta</div></div></div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--text-muted)">
+        <a href="calendario-citas.html" style="color:var(--text-muted);text-decoration:none">Agenda</a>
+        <span>/</span>
+        <span style="color:var(--text-primary);font-weight:500">Agendar cita</span>
+      </div>
+      <div class="topbar-actions">
+        <a href="calendario-citas.html" class="btn btn-secondary">Cancelar</a>
+        <button class="btn btn-primary">Guardar cita</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Agendar cita</h1>
+          <div class="page-sub">Asigna una nueva cita a un paciente</div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:flex-start">
+        <div class="card">
+          <div class="card-header"><div class="card-title">Detalles de la cita</div></div>
+          <div class="card-body">
+            <div class="form-wrap">
+              <div class="form-section">
+                <div class="form-section-title">Paciente y servicio</div>
+                <div class="form-group">
+                  <label class="form-label required">Paciente</label>
+                  <select class="form-select">
+                    <option value="">Seleccionar paciente…</option>
+                    <option selected>María García Hernández · MRN-2026-0481</option>
+                    <option>Carlos Ramírez López · MRN-2026-0479</option>
+                    <option>Lucía Pérez Domínguez · MRN-2026-0478</option>
+                    <option>Jorge Arellano Vega · MRN-2026-0473</option>
+                    <option>Sofía Méndez Ortiz · MRN-2026-0468</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label required">Servicio</label>
+                    <select class="form-select">
+                      <option>Fisioterapia</option>
+                      <option>Consulta médica</option>
+                      <option>Valoración inicial</option>
+                      <option>Nutrición</option>
+                      <option>Psicología</option>
+                      <option>Cosmetología</option>
+                      <option>Odontología</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label required">Doctor</label>
+                    <select class="form-select">
+                      <option>Dr. Roberto Rodríguez</option>
+                      <option>Dra. Alejandra Morales</option>
+                      <option>Dra. Mariana Salinas</option>
+                      <option>Psic. Carolina Luna</option>
+                      <option>Dra. Valeria Castro</option>
+                      <option>Dr. Hugo Fuentes</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <div class="form-section-title">Fecha y hora</div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label required">Fecha</label>
+                    <input type="date" class="form-input" value="2026-04-22">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label required">Hora de inicio</label>
+                    <select class="form-select">
+                      <option>08:00</option><option>08:30</option><option>09:00</option>
+                      <option>09:30</option><option selected>10:00</option><option>10:30</option>
+                      <option>11:00</option><option>11:30</option><option>12:00</option>
+                      <option>12:30</option><option>13:00</option><option>14:00</option>
+                      <option>15:00</option><option>15:30</option><option>16:00</option>
+                      <option>16:30</option><option>17:00</option><option>17:30</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label required">Duración</label>
+                    <select class="form-select">
+                      <option>15 minutos</option>
+                      <option>30 minutos</option>
+                      <option selected>45 minutos</option>
+                      <option>60 minutos</option>
+                      <option>90 minutos</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Tipo</label>
+                    <select class="form-select">
+                      <option selected>Sesión programada</option>
+                      <option>Primera vez</option>
+                      <option>Urgencia</option>
+                      <option>Seguimiento</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <div class="form-section-title">Notas adicionales</div>
+                <div class="form-group">
+                  <label class="form-label">Motivo / notas</label>
+                  <textarea class="form-textarea" placeholder="Indicaciones especiales, contexto de la cita…">Sesión 9/12 de fisioterapia. Continuar protocolo de estabilización lumbar.</textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Recordatorio</label>
+                  <select class="form-select">
+                    <option>24 horas antes</option>
+                    <option>2 horas antes</option>
+                    <option>No enviar</option>
+                  </select>
+                  <div class="form-hint">Se enviará WhatsApp al paciente</div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <a href="calendario-citas.html" class="btn btn-secondary">Cancelar</a>
+                <button class="btn btn-primary">Confirmar cita</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resumen lateral -->
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="card">
+            <div class="card-header"><div class="card-title">Resumen de cita</div></div>
+            <div class="card-body">
+              <div style="background:var(--teal-50);border:1px solid var(--teal-200);border-radius:10px;padding:16px;margin-bottom:14px">
+                <div style="font-size:12px;font-weight:600;color:var(--teal-700);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Fecha y hora</div>
+                <div style="font-family:var(--font-display);font-size:18px;font-weight:500;color:var(--teal-800)">Miércoles 22 abr</div>
+                <div style="font-family:var(--font-mono);font-size:13px;color:var(--teal-700);margin-top:2px">10:00 – 10:45 · 45 min</div>
+              </div>
+              <div class="info-list">
+                <div class="info-row"><span class="info-label">Paciente</span><span class="info-value">María García H.</span></div>
+                <div class="info-row"><span class="info-label">Servicio</span><span class="info-value">Fisioterapia</span></div>
+                <div class="info-row"><span class="info-label">Doctor</span><span class="info-value">Dr. Rodríguez</span></div>
+                <div class="info-row"><span class="info-label">Sesión</span><span class="info-value">9 de 12</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><div class="card-title">Disponibilidad</div></div>
+            <div class="card-body" style="display:flex;flex-direction:column;gap:6px">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:var(--success-50);border-radius:6px;font-size:13px">
+                <span style="color:var(--success-700);font-weight:500">09:00</span>
+                <span class="badge badge-ok" style="font-size:10px">Libre</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:var(--teal-50);border:1.5px solid var(--teal-400);border-radius:6px;font-size:13px">
+                <span style="color:var(--teal-800);font-weight:600">10:00 ✓</span>
+                <span class="badge badge-info" style="font-size:10px">Seleccionado</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:var(--stone-100);border-radius:6px;font-size:13px">
+                <span style="color:var(--text-muted)">11:00</span>
+                <span class="badge badge-neutral" style="font-size:10px">Ocupado</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:var(--success-50);border-radius:6px;font-size:13px">
+                <span style="color:var(--success-700);font-weight:500">12:30</span>
+                <span class="badge badge-ok" style="font-size:10px">Libre</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:var(--success-50);border-radius:6px;font-size:13px">
+                <span style="color:var(--success-700);font-weight:500">15:00</span>
+                <span class="badge badge-ok" style="font-size:10px">Libre</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

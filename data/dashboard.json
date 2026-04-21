@@ -1,0 +1,82 @@
+{
+  "clinica": {
+    "nombre": "Clínica Biomotion",
+    "ubicacion": "Cuautla, Morelos",
+    "pacientes_activos": 842,
+    "doctores_activos": 6
+  },
+  "kpis": {
+    "citas_hoy": 14,
+    "pacientes_activos": 842,
+    "ingresos_farmacia_hoy": 18420,
+    "alertas_abiertas": 3
+  },
+  "consultas_diarias": [
+    { "fecha": "2026-03-22", "total": 8, "fisioterapia": 4, "medica": 2, "nutricion": 1, "psicologia": 1 },
+    { "fecha": "2026-03-23", "total": 11, "fisioterapia": 5, "medica": 3, "nutricion": 2, "psicologia": 1 },
+    { "fecha": "2026-03-24", "total": 9, "fisioterapia": 4, "medica": 2, "nutricion": 2, "psicologia": 1 },
+    { "fecha": "2026-03-25", "total": 13, "fisioterapia": 6, "medica": 4, "nutricion": 2, "psicologia": 1 },
+    { "fecha": "2026-03-26", "total": 10, "fisioterapia": 5, "medica": 2, "nutricion": 2, "psicologia": 1 },
+    { "fecha": "2026-03-27", "total": 7, "fisioterapia": 3, "medica": 2, "nutricion": 1, "psicologia": 1 },
+    { "fecha": "2026-03-28", "total": 5, "fisioterapia": 2, "medica": 2, "nutricion": 1, "psicologia": 0 },
+    { "fecha": "2026-03-29", "total": 12, "fisioterapia": 6, "medica": 3, "nutricion": 2, "psicologia": 1 },
+    { "fecha": "2026-03-30", "total": 14, "fisioterapia": 7, "medica": 4, "nutricion": 2, "psicologia": 1 },
+    { "fecha": "2026-03-31", "total": 11, "fisioterapia": 5, "medica": 3, "nutricion": 2, "psicologia": 1 },
+    { "fecha": "2026-04-01", "total": 15, "fisioterapia": 7, "medica": 4, "nutricion": 3, "psicologia": 1 },
+    { "fecha": "2026-04-02", "total": 10, "fisioterapia": 5, "medica": 2, "nutricion": 2, "psicologia": 1 },
+    { "fecha": "2026-04-03", "total": 8, "fisioterapia": 4, "medica": 2, "nutricion": 1, "psicologia": 1 },
+    { "fecha": "2026-04-04", "total": 6, "fisioterapia": 3, "medica": 1, "nutricion": 1, "psicologia": 1 },
+    { "fecha": "2026-04-05", "total": 13, "fisioterapia": 6, "medica": 4, "nutricion": 2, "psicologia": 1 },
+    { "fecha": "2026-04-06", "total": 16, "fisioterapia": 8, "medica": 4, "nutricion": 3, "psicologia": 1 },
+    { "fecha": "2026-04-07", "total": 12, "fisioterapia": 6, "medica": 3, "nutricion": 2, "psicologia": 1 },
+    { "fecha": "2026-04-08", "total": 14, "fisioterapia": 7, "medica": 3, "nutricion": 3, "psicologia": 1 },
+    { "fecha": "2026-04-09", "total": 11, "fisioterapia": 5, "medica": 3, "nutricion": 2, "psicologia": 1 },
+    { "fecha": "2026-04-10", "total": 9, "fisioterapia": 4, "medica": 2, "nutricion": 2, "psicologia": 1 },
+    { "fecha": "2026-04-11", "total": 7, "fisioterapia": 3, "medica": 2, "nutricion": 1, "psicologia": 1 },
+    { "fecha": "2026-04-12", "total": 15, "fisioterapia": 7, "medica": 4, "nutricion": 3, "psicologia": 1 },
+    { "fecha": "2026-04-13", "total": 17, "fisioterapia": 8, "medica": 5, "nutricion": 3, "psicologia": 1 },
+    { "fecha": "2026-04-14", "total": 13, "fisioterapia": 6, "medica": 4, "nutricion": 2, "psicologia": 1 },
+    { "fecha": "2026-04-15", "total": 16, "fisioterapia": 8, "medica": 4, "nutricion": 3, "psicologia": 1 },
+    { "fecha": "2026-04-16", "total": 12, "fisioterapia": 6, "medica": 3, "nutricion": 2, "psicologia": 1 },
+    { "fecha": "2026-04-17", "total": 10, "fisioterapia": 5, "medica": 2, "nutricion": 2, "psicologia": 1 },
+    { "fecha": "2026-04-18", "total": 8, "fisioterapia": 4, "medica": 2, "nutricion": 1, "psicologia": 1 },
+    { "fecha": "2026-04-19", "total": 14, "fisioterapia": 7, "medica": 4, "nutricion": 2, "psicologia": 1 },
+    { "fecha": "2026-04-20", "total": 14, "fisioterapia": 6, "medica": 4, "nutricion": 3, "psicologia": 1 }
+  ],
+  "ingresos_semanales": [
+    { "semana": "24 feb", "farmacia": 82400, "consultas": 43200 },
+    { "semana": "3 mar",  "farmacia": 91200, "consultas": 47800 },
+    { "semana": "10 mar", "farmacia": 78600, "consultas": 41000 },
+    { "semana": "17 mar", "farmacia": 98200, "consultas": 52400 },
+    { "semana": "24 mar", "farmacia": 104800, "consultas": 55600 },
+    { "semana": "31 mar", "farmacia": 96400, "consultas": 49200 },
+    { "semana": "7 abr",  "farmacia": 112000, "consultas": 58000 },
+    { "semana": "14 abr", "farmacia": 118600, "consultas": 61400 }
+  ],
+  "por_especialidad": {
+    "Fisioterapia": 48,
+    "Consulta médica": 22,
+    "Nutrición": 14,
+    "Psicología": 9,
+    "Fisioterapia deportiva": 7
+  },
+  "por_estado_paciente": {
+    "En tratamiento": 412,
+    "Alta": 218,
+    "Revaloración": 87,
+    "Valoración": 65,
+    "Nutrición": 60
+  },
+  "citas_hoy_por_hora": [
+    { "hora": "08:00", "count": 1 },
+    { "hora": "09:00", "count": 2 },
+    { "hora": "10:00", "count": 3 },
+    { "hora": "11:00", "count": 1 },
+    { "hora": "12:00", "count": 2 },
+    { "hora": "13:00", "count": 0 },
+    { "hora": "14:00", "count": 1 },
+    { "hora": "15:00", "count": 2 },
+    { "hora": "16:00", "count": 1 },
+    { "hora": "17:00", "count": 1 }
+  ]
+}

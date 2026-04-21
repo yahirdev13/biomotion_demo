@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Biomotion · Perfil Paciente</title>
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=fraunces:400,500,600|figtree:400,500,600,700|ibm-plex-mono:400,500" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-tenant"><div class="tenant-avatar">BI</div><div class="tenant-info"><div class="tenant-name">Clínica Biomotion</div><div class="tenant-role">Cuautla · Morelos</div></div></div>
+    <div class="sidebar-logo"><div class="sidebar-logo-mark">B</div><div class="sidebar-logo-text">Biomotion</div></div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Operación</div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Panel</a>
+        <a href="lista-pacientes.html" class="sidebar-link active"><svg class="svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Pacientes<span class="sidebar-badge">12</span></a>
+        <a href="lista-doctores.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Doctores</a>
+        <a href="calendario-citas.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Agenda</a>
+        <a href="lista-consultas.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>Consultas</a>
+      </nav>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Farmacia</div>
+      <nav class="sidebar-nav">
+        <a href="pos.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>Punto de Venta</a>
+        <a href="inventario.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>Inventario</a>
+        <a href="lista-medicamentos.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 7v10M15 7v10M3 12h18"/></svg>Medicamentos</a>
+      </nav>
+    </div>
+    <div class="sidebar-foot"><div class="sidebar-foot-avatar">DR</div><div class="sidebar-foot-info"><div class="sidebar-foot-name">Dr. Rodríguez</div><div class="sidebar-foot-role">Médico · Fisioterapeuta</div></div></div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--text-muted)">
+        <a href="lista-pacientes.html" style="color:var(--text-muted);text-decoration:none">Pacientes</a>
+        <span>/</span>
+        <span style="color:var(--text-primary);font-weight:500">María García Hernández</span>
+      </div>
+      <div class="topbar-actions">
+        <a href="formulario-consulta.html" class="btn btn-secondary">Nueva consulta</a>
+        <a href="formulario-cita.html" class="btn btn-primary">Agendar cita</a>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- Profile hero -->
+      <div class="profile-hero">
+        <div class="profile-avatar-wrap">
+          <div class="profile-avatar">MG</div>
+          <div class="profile-status-dot"></div>
+        </div>
+        <div style="flex:1">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap">
+            <div>
+              <div class="profile-name">María García Hernández</div>
+              <div class="profile-role">Paciente activa · Fisioterapia</div>
+              <div class="profile-tags">
+                <span class="profile-tag">Fisioterapia</span>
+                <span class="profile-tag">Consulta médica</span>
+                <span style="background:var(--danger-50);color:var(--danger-700);border:1px solid var(--danger-500)20;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600">⚠ Alergia: Penicilina</span>
+              </div>
+            </div>
+            <div class="profile-meta">
+              <div class="profile-meta-item"><div class="profile-meta-label">NHC</div><div class="profile-meta-value mono">MRN-2026-0481</div></div>
+              <div class="profile-meta-item"><div class="profile-meta-label">Edad</div><div class="profile-meta-value">33 años · 14 mar 1993</div></div>
+              <div class="profile-meta-item"><div class="profile-meta-label">Doctor</div><div class="profile-meta-value">Dr. Rodríguez</div></div>
+              <div class="profile-meta-item"><div class="profile-meta-label">Próxima cita</div><div class="profile-meta-value">22 abr · 10:00</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-main">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <!-- Datos generales -->
+          <div class="card">
+            <div class="card-header"><div class="card-title">Datos generales</div></div>
+            <div class="card-body">
+              <div class="info-list">
+                <div class="info-row"><span class="info-label">CURP</span><span class="info-value mono">GAHM930314MMCRRL01</span></div>
+                <div class="info-row"><span class="info-label">Teléfono</span><span class="info-value">735 109 4482</span></div>
+                <div class="info-row"><span class="info-label">Correo</span><span class="info-value">maria.garcia@gmail.com</span></div>
+                <div class="info-row"><span class="info-label">Domicilio</span><span class="info-value">Calle Morelos 124, Col. Centro, Cuautla, Mor.</span></div>
+                <div class="info-row"><span class="info-label">Contacto emergencia</span><span class="info-value">Eduardo García · 735 204 1192</span></div>
+                <div class="info-row"><span class="info-label">Seguro médico</span><span class="info-value">IMSS · No. 7123890</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Antecedentes -->
+          <div class="card">
+            <div class="card-header"><div class="card-title">Antecedentes clínicos</div></div>
+            <div class="card-body">
+              <div style="margin-bottom:16px">
+                <div style="font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Alergias</div>
+                <div style="display:flex;gap:6px;flex-wrap:wrap">
+                  <span class="badge badge-critical"><span class="dot"></span>Penicilina</span>
+                  <span class="badge badge-warning"><span class="dot"></span>Aspirina (leve)</span>
+                </div>
+              </div>
+              <div style="margin-bottom:16px">
+                <div style="font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Padecimientos previos</div>
+                <div style="font-size:13.5px;color:var(--text-secondary);line-height:1.6">Lumbalgia crónica (2020–2022). Fractura de clavícula derecha (2019, resuelta). Sin antecedentes cardiacos ni diabetes.</div>
+              </div>
+              <div>
+                <div style="font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Medicación actual</div>
+                <div style="display:flex;gap:6px;flex-wrap:wrap">
+                  <span class="badge badge-neutral">Naproxeno 500mg</span>
+                  <span class="badge badge-neutral">Vitamina D3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar derecho -->
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="stats-row" style="grid-template-columns:1fr 1fr">
+            <div class="stat-box"><div class="stat-box-value">8</div><div class="stat-box-label">Consultas totales</div></div>
+            <div class="stat-box"><div class="stat-box-value">3</div><div class="stat-box-label">Planes activos</div></div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><div class="card-title">Consultas recientes</div><a href="historial-paciente.html" class="btn btn-secondary" style="padding:5px 10px;font-size:12px">Ver historial</a></div>
+            <div class="agenda-list">
+              <div class="agenda-item">
+                <div class="agenda-time">15 abr<span class="dur">2026</span></div>
+                <div class="agenda-body"><div class="agenda-patient">Fisioterapia – Sesión 8</div><div class="agenda-meta">Dr. Rodríguez · 45 min</div></div>
+                <div class="agenda-status"><span class="badge badge-ok"><span class="dot"></span>COMPLETADA</span></div>
+              </div>
+              <div class="agenda-item">
+                <div class="agenda-time">1 abr<span class="dur">2026</span></div>
+                <div class="agenda-body"><div class="agenda-patient">Fisioterapia – Sesión 7</div><div class="agenda-meta">Dr. Rodríguez · 45 min</div></div>
+                <div class="agenda-status"><span class="badge badge-ok"><span class="dot"></span>COMPLETADA</span></div>
+              </div>
+              <div class="agenda-item">
+                <div class="agenda-time">15 mar<span class="dur">2026</span></div>
+                <div class="agenda-body"><div class="agenda-patient">Consulta médica</div><div class="agenda-meta">Dr. Rodríguez · 30 min</div></div>
+                <div class="agenda-status"><span class="badge badge-ok"><span class="dot"></span>COMPLETADA</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><div class="card-title">Próxima cita</div></div>
+            <div class="card-body">
+              <div style="background:var(--teal-50);border:1px solid var(--teal-200);border-radius:10px;padding:16px">
+                <div style="font-family:var(--font-display);font-size:20px;font-weight:500;color:var(--teal-800)">22 de abril 2026</div>
+                <div style="font-family:var(--font-mono);font-size:14px;color:var(--teal-700);margin-top:4px">10:00 – 10:45</div>
+                <div style="font-size:13px;color:var(--text-secondary);margin-top:8px">Fisioterapia – Sesión 9/12<br>Dr. Roberto Rodríguez</div>
+              </div>
+              <div style="margin-top:12px;display:flex;gap:8px">
+                <a href="formulario-cita.html" class="btn btn-secondary btn-sm" style="flex:1;justify-content:center">Reagendar</a>
+                <button class="btn btn-danger btn-sm" style="flex:1;justify-content:center">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

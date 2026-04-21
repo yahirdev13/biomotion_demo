@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Biomotion · Panel</title>
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=fraunces:400,500,600|figtree:400,500,600,700|ibm-plex-mono:400,500" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<style>
+.charts-row{display:grid;grid-template-columns:1fr 1fr 220px;gap:14px;margin-bottom:16px}
+.chart-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.chart-card .card-header{padding:14px 18px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.chart-card .card-body{padding:12px 18px 18px}
+.chart-filter-group{display:flex;gap:4px}
+.chart-filter-btn{padding:4px 12px;border:1px solid var(--border);background:transparent;border-radius:6px;font-size:12px;font-family:var(--font-body);color:var(--text-secondary);cursor:pointer;transition:all .15s}
+.chart-filter-btn.active{background:var(--teal-700);border-color:var(--teal-700);color:#fff}
+.chart-legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+.chart-legend-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-secondary)}
+.chart-legend-dot{width:8px;height:8px;border-radius:50%}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="sidebar-tenant"><div class="tenant-avatar">BI</div><div class="tenant-info"><div class="tenant-name">Clínica Biomotion</div><div class="tenant-role">Cuautla · Morelos</div></div></div>
+    <div class="sidebar-logo"><div class="sidebar-logo-mark">B</div><div class="sidebar-logo-text">Biomotion</div></div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Operación</div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link active"><svg class="svg" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Panel</a>
+        <a href="lista-pacientes.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Pacientes<span class="sidebar-badge">12</span></a>
+        <a href="lista-doctores.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Doctores</a>
+        <a href="calendario-citas.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Agenda</a>
+        <a href="lista-consultas.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>Consultas</a>
+      </nav>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Farmacia</div>
+      <nav class="sidebar-nav">
+        <a href="pos.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>Punto de Venta</a>
+        <a href="inventario.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>Inventario</a>
+        <a href="lista-medicamentos.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 7v10M15 7v10M3 12h18"/></svg>Medicamentos</a>
+      </nav>
+    </div>
+    <div class="sidebar-foot"><div class="sidebar-foot-avatar">DR</div><div class="sidebar-foot-info"><div class="sidebar-foot-name">Dr. Rodríguez</div><div class="sidebar-foot-role">Médico · Fisioterapeuta</div></div></div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="search"><svg class="svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><input type="text" placeholder="Buscar paciente, expediente, medicamento…"></div>
+      <div class="topbar-actions">
+        <button class="icon-btn"><svg class="svg" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="notif-dot"></span></button>
+        <button class="btn btn-primary"><svg class="svg" style="width:14px;height:14px;stroke-width:2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Nuevo paciente</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Panel general</h1>
+          <div class="page-sub">Clínica Biomotion · Cuautla · Lunes 20 de abril 2026</div>
+        </div>
+        <div class="page-actions">
+          <a href="formulario-cita.html" class="btn btn-secondary">+ Agendar cita</a>
+          <a href="formulario-consulta.html" class="btn btn-primary">+ Nueva consulta</a>
+        </div>
+      </div>
+
+      <!-- KPIs -->
+      <div class="kpis" id="kpi-row">
+        <div class="kpi">
+          <div class="kpi-label">Citas hoy</div>
+          <div class="kpi-value" id="kpi-citas">14</div>
+          <div class="kpi-foot"><span class="kpi-delta up">↑ 12%</span><span>vs. promedio semanal</span></div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Pacientes activos</div>
+          <div class="kpi-value" id="kpi-pacientes">842</div>
+          <div class="kpi-foot"><span class="kpi-delta up">↑ 3.2%</span><span>últimos 30 días</span></div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Ingresos farmacia</div>
+          <div class="kpi-value" id="kpi-ingresos">$18,420<span class="unit">MXN</span></div>
+          <div class="kpi-foot"><span class="kpi-delta flat">± 0.0%</span><span id="kpi-ingresos-label">hoy</span></div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Alertas abiertas</div>
+          <div class="kpi-value" style="color:var(--danger-700)">3</div>
+          <div class="kpi-foot"><span class="kpi-delta down">↓ 2</span><span>vs. ayer</span></div>
+        </div>
+      </div>
+
+      <!-- Charts row -->
+      <div class="charts-row">
+        <!-- Consultas trend chart -->
+        <div class="chart-card">
+          <div class="card-header" style="padding:12px 14px 0;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">
+            <div>
+              <div class="card-title" style="font-size:13px">Consultas por día</div>
+              <div class="card-sub" id="chart-consultas-sub" style="font-size:11.5px">Últimos 30 días</div>
+            </div>
+            <div class="chart-filter-group">
+              <button class="chart-filter-btn" onclick="setConsultasFilter('hoy',this)">Hoy</button>
+              <button class="chart-filter-btn" onclick="setConsultasFilter('semana',this)">Semana</button>
+              <button class="chart-filter-btn active" onclick="setConsultasFilter('mes',this)">Mes</button>
+            </div>
+          </div>
+          <div class="chart-legend" style="padding:6px 14px 0;gap:10px">
+            <div class="chart-legend-item"><div class="chart-legend-dot" style="background:#0d9488"></div>Fisio</div>
+            <div class="chart-legend-item"><div class="chart-legend-dot" style="background:#6366f1"></div>Médica</div>
+            <div class="chart-legend-item"><div class="chart-legend-dot" style="background:#f97316"></div>Nutrición</div>
+            <div class="chart-legend-item"><div class="chart-legend-dot" style="background:#a855f7"></div>Psico</div>
+          </div>
+          <div class="card-body" style="padding:6px 14px 12px">
+            <canvas id="chartConsultas" height="130"></canvas>
+          </div>
+        </div>
+
+        <!-- Ingresos chart -->
+        <div class="chart-card">
+          <div class="card-header" style="padding:12px 14px 0;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">
+            <div>
+              <div class="card-title" style="font-size:13px">Ingresos semanales</div>
+              <div class="card-sub" id="chart-ingresos-sub" style="font-size:11.5px">Últimas 8 semanas</div>
+            </div>
+            <div class="chart-filter-group">
+              <button class="chart-filter-btn" onclick="setIngresosFilter('4sem',this)">4 sem</button>
+              <button class="chart-filter-btn active" onclick="setIngresosFilter('8sem',this)">8 sem</button>
+            </div>
+          </div>
+          <div class="chart-legend" style="padding:6px 14px 0;gap:10px">
+            <div class="chart-legend-item"><div class="chart-legend-dot" style="background:#0d9488"></div>Farmacia</div>
+            <div class="chart-legend-item"><div class="chart-legend-dot" style="background:#6366f1"></div>Consultas</div>
+          </div>
+          <div class="card-body" style="padding:6px 14px 12px">
+            <canvas id="chartIngresos" height="130"></canvas>
+          </div>
+        </div>
+
+        <!-- Especialidad donut -->
+        <div class="chart-card">
+          <div class="card-header" style="padding:12px 14px 0">
+            <div>
+              <div class="card-title" style="font-size:13px">Por especialidad</div>
+              <div class="card-sub" style="font-size:11.5px">Este mes</div>
+            </div>
+          </div>
+          <div class="card-body" style="padding:10px 14px 12px;display:flex;flex-direction:column;align-items:center">
+            <canvas id="chartEspecialidad" width="140" height="140"></canvas>
+            <div id="especialidad-legend" style="margin-top:10px;width:100%;display:flex;flex-direction:column;gap:5px"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Patients + Sidebar -->
+      <div class="grid-main">
+        <div class="card">
+          <div class="card-header">
+            <div><div class="card-title">Pacientes recientes</div><div class="card-sub">Ordenado por última visita</div></div>
+            <div class="card-actions">
+              <div class="tab-group">
+                <button class="tab active">Todos</button>
+                <button class="tab">Activos</button>
+                <button class="tab">Alertas</button>
+              </div>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Paciente</th>
+                  <th>Estado</th>
+                  <th>Doctor</th>
+                  <th class="num">Última visita</th>
+                  <th class="num">Próxima cita</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="patient-cell"><div class="patient-avatar">MG</div><div><div class="patient-name">María García Hernández</div><div class="patient-mrn">MRN-2026-0481</div></div></div></td>
+                  <td><span class="badge badge-critical"><span class="dot"></span>ALERGIA</span></td>
+                  <td>Dr. Rodríguez</td>
+                  <td class="num">15 abr 2026</td>
+                  <td class="num">22 abr · 10:00</td>
+                </tr>
+                <tr>
+                  <td><div class="patient-cell"><div class="patient-avatar teal">CR</div><div><div class="patient-name">Carlos Ramírez López</div><div class="patient-mrn">MRN-2026-0479</div></div></div></td>
+                  <td><span class="badge badge-ok"><span class="dot"></span>EN TRATAMIENTO</span></td>
+                  <td>Dra. Morales</td>
+                  <td class="num">17 abr 2026</td>
+                  <td class="num">19 abr · 15:30</td>
+                </tr>
+                <tr>
+                  <td><div class="patient-cell"><div class="patient-avatar">LP</div><div><div class="patient-name">Lucía Pérez Domínguez</div><div class="patient-mrn">MRN-2026-0478</div></div></div></td>
+                  <td><span class="badge badge-warning"><span class="dot"></span>REVALORACIÓN</span></td>
+                  <td>Dr. Rodríguez</td>
+                  <td class="num">12 abr 2026</td>
+                  <td class="num">—</td>
+                </tr>
+                <tr>
+                  <td><div class="patient-cell"><div class="patient-avatar teal">JA</div><div><div class="patient-name">Jorge Arellano Vega</div><div class="patient-mrn">MRN-2026-0473</div></div></div></td>
+                  <td><span class="badge badge-info"><span class="dot"></span>NUTRICIÓN</span></td>
+                  <td>Dra. Salinas</td>
+                  <td class="num">10 abr 2026</td>
+                  <td class="num">24 abr · 09:00</td>
+                </tr>
+                <tr>
+                  <td><div class="patient-cell"><div class="patient-avatar">SM</div><div><div class="patient-name">Sofía Méndez Ortiz</div><div class="patient-mrn">MRN-2026-0468</div></div></div></td>
+                  <td><span class="badge badge-ok"><span class="dot"></span>EN TRATAMIENTO</span></td>
+                  <td>Psic. Luna</td>
+                  <td class="num">8 abr 2026</td>
+                  <td class="num">22 abr · 17:00</td>
+                </tr>
+                <tr>
+                  <td><div class="patient-cell"><div class="patient-avatar teal">EL</div><div><div class="patient-name">Ernesto López Cruz</div><div class="patient-mrn">MRN-2026-0451</div></div></div></td>
+                  <td><span class="badge badge-neutral"><span class="dot"></span>ALTA</span></td>
+                  <td>Dr. Rodríguez</td>
+                  <td class="num">2 abr 2026</td>
+                  <td class="num">—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div class="card">
+            <div class="card-header">
+              <div><div class="card-title">Agenda de hoy</div><div class="card-sub">20 de abril · 14 citas</div></div>
+              <a href="calendario-citas.html" class="btn btn-secondary" style="padding:6px 10px;font-size:12px">Ver todas →</a>
+            </div>
+            <div class="agenda-list">
+              <div class="agenda-item">
+                <div class="agenda-time">09:00<span class="dur">45 min</span></div>
+                <div class="agenda-body"><div class="agenda-patient">María García H.</div><div class="agenda-meta">Fisioterapia · Dr. Rodríguez</div></div>
+                <div class="agenda-status"><span class="badge badge-critical"><span class="dot"></span>ALERGIA</span></div>
+              </div>
+              <div class="agenda-item">
+                <div class="agenda-time">10:30<span class="dur">30 min</span></div>
+                <div class="agenda-body"><div class="agenda-patient">Roberto Díaz H.</div><div class="agenda-meta">Consulta médica · Dra. Morales</div></div>
+                <div class="agenda-status"><span class="badge badge-ok"><span class="dot"></span>CONFIRMADA</span></div>
+              </div>
+              <div class="agenda-item">
+                <div class="agenda-time">12:00<span class="dur">60 min</span></div>
+                <div class="agenda-body"><div class="agenda-patient">Patricia Vega M.</div><div class="agenda-meta">Valoración inicial · Dr. Rodríguez</div></div>
+                <div class="agenda-status"><span class="badge badge-warning"><span class="dot"></span>PENDIENTE</span></div>
+              </div>
+              <div class="agenda-item">
+                <div class="agenda-time">15:30<span class="dur">45 min</span></div>
+                <div class="agenda-body"><div class="agenda-patient">Carlos Ramírez L.</div><div class="agenda-meta">Sesión 8/12 · Dra. Morales</div></div>
+                <div class="agenda-status"><span class="badge badge-ok"><span class="dot"></span>CONFIRMADA</span></div>
+              </div>
+              <div class="agenda-item">
+                <div class="agenda-time">17:00<span class="dur">50 min</span></div>
+                <div class="agenda-body"><div class="agenda-patient">Sofía Méndez O.</div><div class="agenda-meta">Psicología · Psic. Luna</div></div>
+                <div class="agenda-status"><span class="badge badge-ok"><span class="dot"></span>CONFIRMADA</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><div><div class="card-title">Alertas clínicas</div><div class="card-sub">3 abiertas · requieren atención</div></div></div>
+            <div class="alert-list">
+              <div class="alert-item">
+                <div class="alert-icon crit"><svg class="svg" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01"/></svg></div>
+                <div class="alert-body"><div class="alert-title">Alergia crítica · María García</div><div class="alert-desc">Registrada alergia a penicilina. Prescripción rechazada automáticamente.</div><div class="alert-time">Hace 12 min</div></div>
+              </div>
+              <div class="alert-item">
+                <div class="alert-icon warn"><svg class="svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
+                <div class="alert-body"><div class="alert-title">Stock bajo · Naproxeno 500mg</div><div class="alert-desc">8 unidades restantes. Reabastecimiento sugerido antes del 22 abr.</div><div class="alert-time">Hace 2 h</div></div>
+              </div>
+              <div class="alert-item">
+                <div class="alert-icon info"><svg class="svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
+                <div class="alert-body"><div class="alert-title">Revaloración pendiente · Lucía Pérez</div><div class="alert-desc">Plan terapéutico supera 6 semanas sin revaloración formal.</div><div class="alert-time">Hace 1 día</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const DATA_URL = 'data/dashboard.json';
+let dashData = null;
+
+Chart.defaults.font.family = "'Figtree', sans-serif";
+Chart.defaults.font.size = 12;
+Chart.defaults.color = '#78716c';
+
+const COLORS = {
+  fisioterapia: '#0d9488',
+  medica: '#6366f1',
+  nutricion: '#f97316',
+  psicologia: '#a855f7',
+  deportiva: '#06b6d4',
+};
+
+let chartConsultas = null;
+let chartEspecialidad = null;
+let chartIngresos = null;
+
+function fmtDate(isoStr) {
+  const d = new Date(isoStr + 'T00:00:00');
+  return d.toLocaleDateString('es-MX', { day: 'numeric', month: 'short' });
+}
+
+function buildConsultasChart(data, filter) {
+  const ctx = document.getElementById('chartConsultas').getContext('2d');
+  let rows = data.consultas_diarias;
+  let sub = 'Últimos 30 días';
+
+  if (filter === 'hoy') {
+    rows = rows.slice(-1);
+    sub = '20 de abril 2026';
+  } else if (filter === 'semana') {
+    rows = rows.slice(-7);
+    sub = 'Últimos 7 días';
+  } else {
+    rows = rows.slice(-30);
+    sub = 'Últimos 30 días';
+  }
+
+  document.getElementById('chart-consultas-sub').textContent = sub;
+
+  const labels = rows.map(r => fmtDate(r.fecha));
+  const datasets = [
+    { label: 'Fisioterapia', data: rows.map(r => r.fisioterapia), borderColor: COLORS.fisioterapia, backgroundColor: COLORS.fisioterapia + '22', fill: true, tension: 0.4, pointRadius: rows.length <= 1 ? 6 : 3 },
+    { label: 'Consulta médica', data: rows.map(r => r.medica), borderColor: COLORS.medica, backgroundColor: COLORS.medica + '22', fill: true, tension: 0.4, pointRadius: rows.length <= 1 ? 6 : 3 },
+    { label: 'Nutrición', data: rows.map(r => r.nutricion), borderColor: COLORS.nutricion, backgroundColor: COLORS.nutricion + '22', fill: true, tension: 0.4, pointRadius: rows.length <= 1 ? 6 : 3 },
+    { label: 'Psicología', data: rows.map(r => r.psicologia), borderColor: COLORS.psicologia, backgroundColor: COLORS.psicologia + '22', fill: true, tension: 0.4, pointRadius: rows.length <= 1 ? 6 : 3 },
+  ];
+
+  const opts = {
+    responsive: true,
+    plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { maxRotation: 0, maxTicksLimit: 8 } },
+      y: { beginAtZero: true, grid: { color: '#f5f5f4' }, ticks: { stepSize: 2 } }
+    }
+  };
+
+  if (chartConsultas) {
+    chartConsultas.data.labels = labels;
+    chartConsultas.data.datasets = datasets;
+    chartConsultas.update();
+  } else {
+    chartConsultas = new Chart(ctx, { type: 'line', data: { labels, datasets }, options: opts });
+  }
+}
+
+function buildEspecialidadChart(data) {
+  const ctx = document.getElementById('chartEspecialidad').getContext('2d');
+  const esp = data.por_especialidad;
+  const labels = Object.keys(esp);
+  const values = Object.values(esp);
+  const total = values.reduce((a, b) => a + b, 0);
+  const palette = [COLORS.fisioterapia, COLORS.medica, COLORS.nutricion, COLORS.psicologia, COLORS.deportiva];
+
+  chartEspecialidad = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels,
+      datasets: [{
+        data: values,
+        backgroundColor: palette,
+        borderWidth: 2,
+        borderColor: '#fff'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.label}: ${ctx.raw} consultas (${Math.round(ctx.raw/total*100)}%)`
+          }
+        }
+      },
+      cutout: '68%'
+    }
+  });
+
+  const legend = document.getElementById('especialidad-legend');
+  labels.forEach((l, i) => {
+    const pct = Math.round(values[i] / total * 100);
+    legend.innerHTML += `
+      <div style="display:flex;align-items:center;justify-content:space-between;font-size:12.5px">
+        <div style="display:flex;align-items:center;gap:6px">
+          <div style="width:8px;height:8px;border-radius:50%;background:${palette[i]};flex-shrink:0"></div>
+          <span style="color:var(--text-secondary)">${l}</span>
+        </div>
+        <span style="font-weight:600;color:var(--text-primary);font-family:var(--font-mono)">${pct}%</span>
+      </div>`;
+  });
+}
+
+function buildIngresosChart(data, filter) {
+  const ctx = document.getElementById('chartIngresos').getContext('2d');
+  let rows = data.ingresos_semanales;
+  let sub = 'Últimas 8 semanas';
+
+  if (filter === '4sem') {
+    rows = rows.slice(-4);
+    sub = 'Últimas 4 semanas';
+  } else {
+    rows = rows.slice(-8);
+    sub = 'Últimas 8 semanas';
+  }
+
+  document.getElementById('chart-ingresos-sub').textContent = sub;
+
+  const labels = rows.map(r => r.semana);
+  const datasets = [
+    {
+      label: 'Farmacia',
+      data: rows.map(r => r.farmacia),
+      backgroundColor: COLORS.fisioterapia + 'cc',
+      borderColor: COLORS.fisioterapia,
+      borderWidth: 1,
+      borderRadius: 5,
+    },
+    {
+      label: 'Consultas',
+      data: rows.map(r => r.consultas),
+      backgroundColor: COLORS.medica + 'cc',
+      borderColor: COLORS.medica,
+      borderWidth: 1,
+      borderRadius: 5,
+    }
+  ];
+
+  const opts = {
+    responsive: true,
+    plugins: { legend: { display: false }, tooltip: {
+      callbacks: { label: ctx => ` ${ctx.dataset.label}: $${ctx.raw.toLocaleString('es-MX')} MXN` }
+    }},
+    scales: {
+      x: { grid: { display: false } },
+      y: {
+        beginAtZero: true,
+        grid: { color: '#f5f5f4' },
+        ticks: { callback: v => '$' + (v/1000).toFixed(0) + 'k' }
+      }
+    }
+  };
+
+  if (chartIngresos) {
+    chartIngresos.data.labels = labels;
+    chartIngresos.data.datasets = datasets;
+    chartIngresos.update();
+  } else {
+    chartIngresos = new Chart(ctx, { type: 'bar', data: { labels, datasets }, options: opts });
+  }
+}
+
+function setConsultasFilter(filter, btn) {
+  document.querySelectorAll('.chart-filter-group').forEach(g => {
+    if (g.contains(btn)) g.querySelectorAll('.chart-filter-btn').forEach(b => b.classList.toggle('active', b === btn));
+  });
+  buildConsultasChart(dashData, filter);
+
+  if (filter === 'hoy') {
+    document.getElementById('kpi-citas').textContent = dashData.kpis.citas_hoy;
+    document.getElementById('kpi-ingresos').innerHTML = '$' + dashData.kpis.ingresos_farmacia_hoy.toLocaleString('es-MX') + '<span class="unit">MXN</span>';
+    document.getElementById('kpi-ingresos-label').textContent = 'hoy';
+  } else if (filter === 'semana') {
+    const last7 = dashData.consultas_diarias.slice(-7).reduce((s, r) => s + r.total, 0);
+    document.getElementById('kpi-citas').textContent = last7;
+    const lastWeekIngresos = dashData.ingresos_semanales.slice(-1)[0].farmacia;
+    document.getElementById('kpi-ingresos').innerHTML = '$' + lastWeekIngresos.toLocaleString('es-MX') + '<span class="unit">MXN</span>';
+    document.getElementById('kpi-ingresos-label').textContent = 'esta semana';
+  } else {
+    const last30 = dashData.consultas_diarias.reduce((s, r) => s + r.total, 0);
+    document.getElementById('kpi-citas').textContent = last30;
+    const monthIngresos = dashData.ingresos_semanales.reduce((s, r) => s + r.farmacia, 0);
+    document.getElementById('kpi-ingresos').innerHTML = '$' + monthIngresos.toLocaleString('es-MX') + '<span class="unit">MXN</span>';
+    document.getElementById('kpi-ingresos-label').textContent = 'este mes';
+  }
+}
+
+function setIngresosFilter(filter, btn) {
+  document.querySelectorAll('.chart-filter-group').forEach(g => {
+    if (g.contains(btn)) g.querySelectorAll('.chart-filter-btn').forEach(b => b.classList.toggle('active', b === btn));
+  });
+  buildIngresosChart(dashData, filter);
+}
+
+fetch(DATA_URL)
+  .then(r => r.json())
+  .then(data => {
+    dashData = data;
+    buildConsultasChart(data, 'mes');
+    buildEspecialidadChart(data);
+    buildIngresosChart(data, '8sem');
+  })
+  .catch(() => {
+    // fallback with inline data if fetch fails (e.g. opened as file://)
+    dashData = {
+      kpis: { citas_hoy: 14, pacientes_activos: 842, ingresos_farmacia_hoy: 18420 },
+      consultas_diarias: [
+        {fecha:'2026-04-14',total:16,fisioterapia:8,medica:4,nutricion:3,psicologia:1},
+        {fecha:'2026-04-15',total:16,fisioterapia:8,medica:4,nutricion:3,psicologia:1},
+        {fecha:'2026-04-16',total:12,fisioterapia:6,medica:3,nutricion:2,psicologia:1},
+        {fecha:'2026-04-17',total:10,fisioterapia:5,medica:2,nutricion:2,psicologia:1},
+        {fecha:'2026-04-18',total:8,fisioterapia:4,medica:2,nutricion:1,psicologia:1},
+        {fecha:'2026-04-19',total:14,fisioterapia:7,medica:4,nutricion:2,psicologia:1},
+        {fecha:'2026-04-20',total:14,fisioterapia:6,medica:4,nutricion:3,psicologia:1}
+      ],
+      ingresos_semanales: [
+        {semana:'31 mar',farmacia:96400,consultas:49200},
+        {semana:'7 abr',farmacia:112000,consultas:58000},
+        {semana:'14 abr',farmacia:118600,consultas:61400},
+        {semana:'20 abr',farmacia:18420,consultas:7200}
+      ],
+      por_especialidad: {'Fisioterapia':48,'Consulta médica':22,'Nutrición':14,'Psicología':9,'Fisioterapia deportiva':7}
+    };
+    buildConsultasChart(dashData, 'mes');
+    buildEspecialidadChart(dashData);
+    buildIngresosChart(dashData, '8sem');
+  });
+</script>
+</body>
+</html>

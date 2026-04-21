@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Biomotion · Medicamentos</title>
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=fraunces:400,500,600|figtree:400,500,600,700|ibm-plex-mono:400,500" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-tenant"><div class="tenant-avatar">BI</div><div class="tenant-info"><div class="tenant-name">Clínica Biomotion</div><div class="tenant-role">Cuautla · Morelos</div></div></div>
+    <div class="sidebar-logo"><div class="sidebar-logo-mark">B</div><div class="sidebar-logo-text">Biomotion</div></div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Operación</div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Panel</a>
+        <a href="lista-pacientes.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Pacientes<span class="sidebar-badge">12</span></a>
+        <a href="lista-doctores.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Doctores</a>
+        <a href="calendario-citas.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Agenda</a>
+        <a href="lista-consultas.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>Consultas</a>
+      </nav>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Farmacia</div>
+      <nav class="sidebar-nav">
+        <a href="pos.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>Punto de Venta</a>
+        <a href="inventario.html" class="sidebar-link"><svg class="svg" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>Inventario</a>
+        <a href="lista-medicamentos.html" class="sidebar-link active"><svg class="svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 7v10M15 7v10M3 12h18"/></svg>Medicamentos</a>
+      </nav>
+    </div>
+    <div class="sidebar-foot"><div class="sidebar-foot-avatar">DR</div><div class="sidebar-foot-info"><div class="sidebar-foot-name">Dr. Rodríguez</div><div class="sidebar-foot-role">Médico · Fisioterapeuta</div></div></div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="search"><svg class="svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><input type="text" placeholder="Buscar por nombre, SKU, categoría…"></div>
+      <div class="topbar-actions">
+        <button class="icon-btn"><svg class="svg" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="notif-dot"></span></button>
+        <button class="btn btn-secondary">Exportar</button>
+        <a href="formulario-medicina.html" class="btn btn-primary">+ Agregar medicamento</a>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Medicamentos</h1>
+          <div class="page-sub">Catálogo farmacéutico · 48 productos registrados</div>
+        </div>
+        <div class="page-actions">
+          <div class="tab-group">
+            <button class="tab active">Todos</button>
+            <button class="tab">AINE</button>
+            <button class="tab">Vitaminas</button>
+            <button class="tab">Antibióticos</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpis">
+        <div class="kpi"><div class="kpi-label">Total en catálogo</div><div class="kpi-value">48</div><div class="kpi-foot"><span class="kpi-delta up">↑ 3</span><span>nuevos este mes</span></div></div>
+        <div class="kpi"><div class="kpi-label">Requieren receta</div><div class="kpi-value">32</div><div class="kpi-foot"><span class="kpi-delta flat">± 0</span><span>sin cambios</span></div></div>
+        <div class="kpi"><div class="kpi-label">Stock bajo</div><div class="kpi-value" style="color:var(--warning-700)">3</div><div class="kpi-foot"><span class="kpi-delta down">↑ 2</span><span>esta semana</span></div></div>
+        <div class="kpi"><div class="kpi-label">Por vencer (30d)</div><div class="kpi-value" style="color:var(--danger-700)">2</div><div class="kpi-foot"><span class="kpi-delta flat">±</span><span>sin cambios</span></div></div>
+      </div>
+
+      <div class="card">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Medicamento</th>
+                <th>Categoría</th>
+                <th>Laboratorio</th>
+                <th>Forma farmacéutica</th>
+                <th class="num">Precio</th>
+                <th>Receta</th>
+                <th>Estado</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div><div style="font-weight:500;color:var(--text-primary)">Naproxeno 500 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">NAP-500</div></div></td>
+                <td>AINE</td>
+                <td>Pisa</td>
+                <td>Tableta · Caja 20</td>
+                <td class="num">$48.00</td>
+                <td><span class="badge badge-info">Receta simple</span></td>
+                <td><span class="badge badge-warning"><span class="dot"></span>STOCK BAJO</span></td>
+                <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
+              </tr>
+              <tr>
+                <td><div><div style="font-weight:500;color:var(--text-primary)">Paracetamol 500 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">PAR-500</div></div></td>
+                <td>Analgésico</td>
+                <td>Liomont</td>
+                <td>Tableta · Caja 20</td>
+                <td class="num">$32.00</td>
+                <td><span class="badge badge-neutral">Sin receta</span></td>
+                <td><span class="badge badge-ok"><span class="dot"></span>OK</span></td>
+                <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
+              </tr>
+              <tr>
+                <td><div><div style="font-weight:500;color:var(--text-primary)">Omeprazol 20 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">OME-20</div></div></td>
+                <td>IBP</td>
+                <td>Roche</td>
+                <td>Cápsula · Caja 14</td>
+                <td class="num">$65.00</td>
+                <td><span class="badge badge-info">Receta simple</span></td>
+                <td><span class="badge badge-ok"><span class="dot"></span>OK</span></td>
+                <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
+              </tr>
+              <tr>
+                <td><div><div style="font-weight:500;color:var(--text-primary)">Vitamina D3 2000 UI</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">VITD3</div></div></td>
+                <td>Vitamina</td>
+                <td>Bayer</td>
+                <td>Tableta · Frasco 30</td>
+                <td class="num">$120.00</td>
+                <td><span class="badge badge-neutral">Sin receta</span></td>
+                <td><span class="badge badge-ok"><span class="dot"></span>OK</span></td>
+                <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
+              </tr>
+              <tr>
+                <td><div><div style="font-weight:500;color:var(--text-primary)">Ibuprofeno 400 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">IBU-400</div></div></td>
+                <td>AINE</td>
+                <td>Pisa</td>
+                <td>Tableta · Caja 20</td>
+                <td class="num">$45.00</td>
+                <td><span class="badge badge-neutral">Sin receta</span></td>
+                <td><span class="badge badge-warning"><span class="dot"></span>STOCK BAJO</span></td>
+                <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
+              </tr>
+              <tr>
+                <td><div><div style="font-weight:500;color:var(--text-primary)">Magnesio 400 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">MAG-400</div></div></td>
+                <td>Mineral</td>
+                <td>Pfizer</td>
+                <td>Cápsula · Frasco 30</td>
+                <td class="num">$95.00</td>
+                <td><span class="badge badge-neutral">Sin receta</span></td>
+                <td><span class="badge badge-ok"><span class="dot"></span>OK</span></td>
+                <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
+              </tr>
+              <tr>
+                <td><div><div style="font-weight:500;color:var(--text-primary)">Diclofenaco gel 1%</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">DIC-GEL</div></div></td>
+                <td>AINE tópico</td>
+                <td>Novartis</td>
+                <td>Gel · Tubo 50g</td>
+                <td class="num">$78.00</td>
+                <td><span class="badge badge-neutral">Sin receta</span></td>
+                <td><span class="badge badge-ok"><span class="dot"></span>OK</span></td>
+                <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
+              </tr>
+              <tr>
+                <td><div><div style="font-weight:500;color:var(--text-primary)">Metformina 500 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">MET-500</div></div></td>
+                <td>Hipoglucemiante</td>
+                <td>Sanofi</td>
+                <td>Tableta · Caja 30</td>
+                <td class="num">$55.00</td>
+                <td><span class="badge badge-info">Receta simple</span></td>
+                <td><span class="badge badge-warning"><span class="dot"></span>STOCK BAJO</span></td>
+                <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
+              </tr>
+              <tr>
+                <td><div><div style="font-weight:500;color:var(--text-primary)">Colágeno hidrolizado</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">COL-HID</div></div></td>
+                <td>Suplemento</td>
+                <td>Vitapack</td>
+                <td>Polvo · Bote 300g</td>
+                <td class="num">$280.00</td>
+                <td><span class="badge badge-neutral">Sin receta</span></td>
+                <td><span class="badge badge-critical"><span class="dot"></span>POR VENCER</span></td>
+                <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
+              </tr>
+              <tr>
+                <td><div><div style="font-weight:500;color:var(--text-primary)">Amoxicilina 500 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">AMO-500</div></div></td>
+                <td>Antibiótico</td>
+                <td>Bayer</td>
+                <td>Cápsula · Caja 12</td>
+                <td class="num">$88.00</td>
+                <td><span class="badge badge-critical">Receta especial</span></td>
+                <td><span class="badge badge-ok"><span class="dot"></span>OK</span></td>
+                <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
+              </tr>
+              <tr>
+                <td><div><div style="font-weight:500;color:var(--text-primary)">Loratadina 10 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">LOR-10</div></div></td>
+                <td>Antihistamínico</td>
+                <td>Liomont</td>
+                <td>Tableta · Caja 10</td>
+                <td class="num">$38.00</td>
+                <td><span class="badge badge-neutral">Sin receta</span></td>
+                <td><span class="badge badge-ok"><span class="dot"></span>OK</span></td>
+                <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
+              </tr>
+              <tr>
+                <td><div><div style="font-weight:500;color:var(--text-primary)">Clonazepam 0.5 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">CLO-05</div></div></td>
+                <td>Benzodiacepina</td>
+                <td>Roche</td>
+                <td>Tableta · Caja 30</td>
+                <td class="num">$142.00</td>
+                <td><span class="badge badge-critical">Receta especial</span></td>
+                <td><span class="badge badge-ok"><span class="dot"></span>OK</span></td>
+                <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

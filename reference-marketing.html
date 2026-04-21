@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Biomotion — Clínica integral de rehabilitación y movimiento · Cuautla, Morelos</title>
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=fraunces:400,500,600|figtree:400,500,600,700|ibm-plex-mono:400,500" rel="stylesheet">
+<style>
+:root{
+  /* Primitivos */
+  --teal-50:oklch(97.5% .015 200);--teal-100:oklch(94% .03 200);--teal-200:oklch(88% .055 200);
+  --teal-300:oklch(80% .08 200);--teal-400:oklch(70% .105 200);--teal-500:oklch(58% .115 200);
+  --teal-600:oklch(48% .11 200);--teal-700:oklch(39% .095 200);--teal-800:oklch(31% .075 200);
+  --teal-900:oklch(23% .055 200);--teal-950:oklch(15% .035 200);
+  --coral-50:oklch(97% .015 35);--coral-100:oklch(94% .035 35);--coral-200:oklch(88% .065 35);
+  --coral-300:oklch(80% .1 35);--coral-400:oklch(72% .135 35);--coral-500:oklch(65% .16 35);
+  --coral-600:oklch(57% .165 35);--coral-700:oklch(47% .15 35);--coral-800:oklch(38% .12 35);
+  --coral-900:oklch(29% .09 35);
+  --stone-50:oklch(98.5% .003 60);--stone-100:oklch(96% .005 60);--stone-200:oklch(92% .008 60);
+  --stone-300:oklch(86% .01 60);--stone-400:oklch(72% .012 60);--stone-500:oklch(56% .013 60);
+  --stone-600:oklch(44% .013 60);--stone-700:oklch(35% .012 60);--stone-800:oklch(26% .01 60);
+  --stone-900:oklch(18% .008 60);--stone-950:oklch(11% .005 60);
+  /* Semánticos marketing */
+  --bg-canvas:var(--stone-50);--bg-surface:#fff;--bg-surface-alt:var(--stone-100);
+  --text-primary:var(--stone-900);--text-secondary:var(--stone-700);--text-muted:var(--stone-500);
+  --border-subtle:var(--stone-200);--border-default:var(--stone-300);
+  --action-primary:var(--teal-600);--action-primary-hover:var(--teal-700);
+  --action-accent:var(--coral-600);--action-accent-hover:var(--coral-700);
+  /* Fuentes */
+  --font-display:'Fraunces',Georgia,serif;
+  --font-sans:'Figtree','Helvetica Neue',sans-serif;
+  --font-mono:'IBM Plex Mono',Menlo,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--font-sans);
+  background:var(--bg-canvas);
+  color:var(--text-primary);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:400;margin:0;letter-spacing:-.02em;line-height:1.1}
+h1{font-size:clamp(44px,6vw,72px);letter-spacing:-.03em}
+h2{font-size:clamp(32px,4vw,44px)}
+h3{font-size:24px;letter-spacing:-.01em}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.overline{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--coral-700)}
+.eyebrow{font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
+
+/* Top bar */
+.topbar{background:var(--teal-900);color:var(--stone-200);font-size:13px;padding:10px 0}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.topbar a{color:var(--coral-300)}
+.topbar-hours{display:flex;gap:20px;align-items:center}
+
+/* Header */
+.header{position:sticky;top:0;z-index:50;background:rgba(250,250,249,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-subtle)}
+.header .container{display:flex;justify-content:space-between;align-items:center;padding-top:16px;padding-bottom:16px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:22px;font-weight:500;letter-spacing:-.01em}
+.logo-mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--teal-600),var(--teal-800));display:grid;place-items:center;color:#fff;font-weight:600;font-family:var(--font-sans)}
+.nav{display:flex;gap:32px;align-items:center}
+.nav a{font-size:14px;font-weight:500;color:var(--text-secondary);transition:color .15s}
+.nav a:hover{color:var(--teal-700)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:9999px;font-weight:600;font-size:14px;transition:all .18s cubic-bezier(.16,1,.3,1);cursor:pointer;border:none;font-family:inherit}
+.btn-primary{background:var(--action-primary);color:#fff}
+.btn-primary:hover{background:var(--action-primary-hover);transform:translateY(-1px);box-shadow:0 4px 12px oklch(48% .11 200 / .25)}
+.btn-accent{background:var(--action-accent);color:#fff}
+.btn-accent:hover{background:var(--action-accent-hover);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--teal-800);border:1.5px solid var(--border-default)}
+.btn-ghost:hover{background:var(--stone-100);border-color:var(--teal-600)}
+.btn-lg{padding:16px 28px;font-size:15px}
+
+/* Hero */
+.hero{position:relative;padding:64px 0 96px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:32px}}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;background:var(--coral-50);color:var(--coral-800);padding:8px 16px;border-radius:9999px;font-size:13px;font-weight:500;margin-bottom:24px;border:1px solid var(--coral-200)}
+.hero-kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--coral-500)}
+.hero h1{color:var(--text-primary)}
+.hero h1 em{font-style:italic;color:var(--teal-700);font-weight:500}
+.hero-lede{font-size:18px;color:var(--text-secondary);margin-top:24px;max-width:540px;line-height:1.65}
+.hero-cta{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
+.hero-trust{display:flex;gap:32px;margin-top:48px;padding-top:28px;border-top:1px solid var(--border-subtle);max-width:540px}
+.trust-item{flex:1}
+.trust-number{font-family:var(--font-display);font-size:32px;font-weight:500;color:var(--teal-700);line-height:1;letter-spacing:-.02em}
+.trust-label{font-size:13px;color:var(--text-muted);margin-top:6px;line-height:1.4}
+
+.hero-visual{position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,var(--teal-100),var(--coral-100));box-shadow:0 20px 60px -20px oklch(23% .055 200 / .25)}
+.hero-visual::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,transparent,oklch(23% .055 200 / .4) 100%)}
+.hero-visual-placeholder{position:absolute;inset:0;display:grid;place-items:center;color:var(--stone-600);font-size:13px;text-align:center;padding:24px}
+.hero-badge{position:absolute;bottom:24px;left:24px;right:24px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-radius:16px;padding:20px;display:flex;gap:14px;align-items:center}
+.hero-badge-icon{width:44px;height:44px;border-radius:12px;background:var(--teal-100);display:grid;place-items:center;flex-shrink:0}
+.hero-badge-text{font-size:14px;line-height:1.4}
+.hero-badge-text strong{display:block;color:var(--text-primary);font-weight:600;margin-bottom:2px}
+.hero-badge-text span{color:var(--text-muted);font-size:13px}
+
+/* Section spacing */
+.section{padding:96px 0}
+.section-header{max-width:760px;margin-bottom:56px}
+.section-header .overline{margin-bottom:16px;display:block}
+.section-header h2{margin-bottom:20px}
+.section-header p{color:var(--text-secondary);font-size:18px;line-height:1.6}
+
+/* Philosophy band */
+.philosophy{background:var(--bg-surface-alt);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)}
+.philosophy-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px}
+@media(max-width:900px){.philosophy-grid{grid-template-columns:1fr;gap:32px}}
+.philosophy-item .philosophy-number{font-family:var(--font-mono);font-size:14px;color:var(--coral-700);margin-bottom:16px;letter-spacing:.05em}
+.philosophy-item h3{margin-bottom:12px}
+.philosophy-item p{color:var(--text-secondary);font-size:15px;line-height:1.65}
+
+/* Services */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.services-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.services-grid{grid-template-columns:1fr}}
+.service-card{background:var(--bg-surface);border-radius:20px;overflow:hidden;border:1px solid var(--border-subtle);transition:all .25s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -12px oklch(20% .02 60 / .15);border-color:var(--teal-300)}
+.service-visual{aspect-ratio:4/3;background:linear-gradient(135deg,var(--teal-100),var(--teal-200));position:relative;overflow:hidden}
+.service-visual.v2{background:linear-gradient(135deg,var(--coral-100),var(--coral-200))}
+.service-visual.v3{background:linear-gradient(135deg,var(--teal-50),var(--coral-100))}
+.service-visual.v4{background:linear-gradient(135deg,var(--stone-200),var(--teal-200))}
+.service-visual.v5{background:linear-gradient(135deg,var(--coral-200),var(--stone-200))}
+.service-visual.v6{background:linear-gradient(135deg,var(--teal-200),var(--teal-300))}
+.service-icon{position:absolute;top:16px;left:16px;width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.9);display:grid;place-items:center}
+.service-body{padding:24px;flex:1;display:flex;flex-direction:column}
+.service-body h3{font-size:22px;margin-bottom:10px}
+.service-body p{color:var(--text-secondary);font-size:14.5px;line-height:1.6;flex:1}
+.service-link{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:14px;font-weight:600;color:var(--teal-700)}
+.service-link:hover{color:var(--coral-700)}
+
+/* Testimonials */
+.testimonials{background:var(--teal-950);color:var(--stone-100)}
+.testimonials .overline{color:var(--coral-400)}
+.testimonials h2{color:#fff}
+.testimonials .section-header p{color:var(--stone-300)}
+.testimonials-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+@media(max-width:800px){.testimonials-grid{grid-template-columns:1fr}}
+.testimonial{background:oklch(31% .075 200 / .4);backdrop-filter:blur(8px);border:1px solid oklch(48% .11 200 / .3);border-radius:20px;padding:32px}
+.testimonial-quote{font-family:var(--font-display);font-style:italic;font-size:20px;line-height:1.5;color:#fff;margin-bottom:24px;letter-spacing:-.005em}
+.testimonial-meta{display:flex;align-items:center;gap:14px}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--coral-400),var(--coral-600));display:grid;place-items:center;color:#fff;font-weight:600;font-size:15px;flex-shrink:0}
+.testimonial-name{font-weight:600;font-size:15px;color:#fff}
+.testimonial-service{font-size:13px;color:var(--stone-400);margin-top:2px}
+
+/* Visit */
+.visit{background:var(--bg-surface)}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+@media(max-width:900px){.visit-grid{grid-template-columns:1fr;gap:40px}}
+.visit-info h2{margin-bottom:24px}
+.visit-details{display:grid;gap:20px;margin-top:32px}
+.visit-detail{display:flex;gap:16px;padding:20px;background:var(--stone-50);border-radius:16px;border:1px solid var(--border-subtle)}
+.visit-detail-icon{width:40px;height:40px;border-radius:10px;background:var(--teal-100);display:grid;place-items:center;color:var(--teal-700);flex-shrink:0}
+.visit-detail strong{display:block;font-size:13px;color:var(--text-muted);font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.visit-detail p{color:var(--text-primary);font-size:15px;line-height:1.5}
+.visit-map{aspect-ratio:1;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,var(--teal-100),var(--teal-200));position:relative;border:1px solid var(--border-default)}
+.visit-map-pin{position:absolute;top:50%;left:50%;transform:translate(-50%,-100%);width:48px;height:48px;border-radius:50% 50% 50% 0;background:var(--coral-600);transform:translate(-50%,-100%) rotate(-45deg);box-shadow:0 6px 16px oklch(29% .09 35 / .3)}
+.visit-map-pin::after{content:"";position:absolute;top:13px;left:13px;width:22px;height:22px;border-radius:50%;background:#fff}
+
+/* Footer */
+.footer{background:var(--teal-900);color:var(--stone-300);padding:64px 0 32px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+@media(max-width:800px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+.footer-brand .logo{color:#fff;margin-bottom:16px}
+.footer-brand p{font-size:14px;line-height:1.6;color:var(--stone-400);max-width:320px}
+.footer-col h4{font-family:var(--font-sans);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#fff;margin-bottom:16px}
+.footer-col ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.footer-col a{font-size:14px;color:var(--stone-300);transition:color .15s}
+.footer-col a:hover{color:var(--coral-400)}
+.footer-bottom{border-top:1px solid oklch(31% .075 200);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--stone-500);flex-wrap:wrap;gap:16px}
+
+.svg-icon{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-hours">
+      <span>📍 Calle Niño Artillero 40, Cuautla, Morelos</span>
+      <span>🕐 Lun–Sáb · 8:00 a.m. – 8:00 p.m.</span>
+    </div>
+    <a href="https://wa.me/527355316111">WhatsApp · 735 531 6111 →</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <a href="/" class="logo">
+      <span class="logo-mark">B</span>
+      <span>Biomotion</span>
+    </a>
+    <nav class="nav">
+      <a href="#">Quiénes somos</a>
+      <a href="#">Servicios</a>
+      <a href="#">Especialidades</a>
+      <a href="#">Instalaciones</a>
+      <a href="#">Contacto</a>
+    </nav>
+    <a href="#" class="btn btn-primary">Agendar cita</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-kicker">
+          <span class="dot"></span>
+          Clínica multidisciplinaria en Cuautla
+        </div>
+        <h1>Recupera tu movimiento con <em>evidencia</em> y trato humano.</h1>
+        <p class="hero-lede">
+          Clínica integral especializada en rehabilitación, movimiento y bienestar físico.
+          Diagnosticamos el origen real de tu dolor y diseñamos un plan terapéutico a tu medida.
+        </p>
+        <div class="hero-cta">
+          <a href="#" class="btn btn-primary btn-lg">Agendar valoración</a>
+          <a href="#" class="btn btn-ghost btn-lg">Conoce nuestros servicios →</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item">
+            <div class="trust-number">+10</div>
+            <div class="trust-label">años de experiencia clínica</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-number">6</div>
+            <div class="trust-label">disciplinas bajo un mismo techo</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-number">100%</div>
+            <div class="trust-label">tratamientos personalizados</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-visual-placeholder">
+          [Fotografía protagónica: paciente en rehabilitación con fisioterapeuta — overlay teal sutil, radius 20px]
+        </div>
+        <div class="hero-badge">
+          <div class="hero-badge-icon">
+            <svg class="svg-icon" style="stroke:var(--teal-700)" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/>
+            </svg>
+          </div>
+          <div class="hero-badge-text">
+            <strong>Fisioterapia basada en evidencia</strong>
+            <span>Protocolos actualizados y medibles</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Philosophy -->
+<section class="philosophy section">
+  <div class="container">
+    <div class="section-header">
+      <span class="overline">Nuestro enfoque</span>
+      <h2>Un diagnóstico. Un equipo. Un plan.</h2>
+      <p>Entendemos que el dolor afecta cada parte de tu día. Por eso integramos diagnóstico, tratamiento y seguimiento bajo un mismo espacio, con especialistas que trabajan en conjunto.</p>
+    </div>
+    <div class="philosophy-grid">
+      <div class="philosophy-item">
+        <div class="philosophy-number">01 / Valoración</div>
+        <h3>Encontramos el origen real.</h3>
+        <p>Valoración clínica integral con dinamometría, goniometría y análisis funcional. Identificamos la causa, no solo el síntoma.</p>
+      </div>
+      <div class="philosophy-item">
+        <div class="philosophy-number">02 / Plan terapéutico</div>
+        <h3>Un tratamiento diseñado para ti.</h3>
+        <p>Combinamos terapia manual, ejercicio terapéutico, hidroterapia y técnicas especializadas según tu lesión y tus objetivos.</p>
+      </div>
+      <div class="philosophy-item">
+        <div class="philosophy-number">03 / Seguimiento</div>
+        <h3>Resultados medibles y sostenibles.</h3>
+        <p>Acompañamiento cercano en cada etapa del proceso. Medimos tu progreso y ajustamos el plan conforme evolucionas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="overline">Servicios</span>
+      <h2>Todo lo que necesitas, en un solo lugar.</h2>
+      <p>Desde rehabilitación física hasta salud emocional y estética. Un enfoque multidisciplinario que se adapta a cada persona.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-visual">
+          <div class="service-icon">
+            <svg class="svg-icon" style="stroke:var(--teal-700)" viewBox="0 0 24 24"><path d="M12 2v6m0 0l3-3m-3 3L9 5M4.5 19.5l4-4m0 0l-2-2m2 2l2-2M19.5 4.5l-4 4m0 0l2 2m-2-2l-2 2M4.5 4.5l4 4M19.5 19.5l-4-4"/></svg>
+          </div>
+        </div>
+        <div class="service-body">
+          <h3>Fisioterapia</h3>
+          <p>Rehabilitación personalizada para aliviar dolor, recuperar movilidad y mejorar la función física mediante terapia manual, ejercicio terapéutico y técnicas especializadas.</p>
+          <a href="#" class="service-link">Conocer más →</a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-visual v2">
+          <div class="service-icon">
+            <svg class="svg-icon" style="stroke:var(--coral-700)" viewBox="0 0 24 24"><path d="M19.5 12.5L12 20l-7.5-7.5a5 5 0 0 1 7.5-6.5 5 5 0 0 1 7.5 6.5z"/></svg>
+          </div>
+        </div>
+        <div class="service-body">
+          <h3>Consulta médica</h3>
+          <p>Valoración clínica integral para orientar diagnóstico y tratamiento, con seguimiento profesional enfocado en tu bienestar y recuperación.</p>
+          <a href="#" class="service-link">Conocer más →</a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-visual v3">
+          <div class="service-icon">
+            <svg class="svg-icon" style="stroke:var(--teal-700)" viewBox="0 0 24 24"><path d="M7 11v8a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-8m-10 0V9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2m-10 0h10M12 7V4"/></svg>
+          </div>
+        </div>
+        <div class="service-body">
+          <h3>Nutrición</h3>
+          <p>Planes de alimentación individualizados para mejorar hábitos, optimizar rendimiento y apoyar tus objetivos de salud y composición corporal.</p>
+          <a href="#" class="service-link">Conocer más →</a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-visual v4">
+          <div class="service-icon">
+            <svg class="svg-icon" style="stroke:var(--teal-800)" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+          </div>
+        </div>
+        <div class="service-body">
+          <h3>Psicología</h3>
+          <p>Acompañamiento terapéutico para fortalecer el bienestar emocional, manejar estrés y ansiedad, y desarrollar herramientas para una vida más equilibrada.</p>
+          <a href="#" class="service-link">Conocer más →</a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-visual v5">
+          <div class="service-icon">
+            <svg class="svg-icon" style="stroke:var(--coral-700)" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0z"/><path d="M12 8v8m-4-4h8"/></svg>
+          </div>
+        </div>
+        <div class="service-body">
+          <h3>Cosmetología</h3>
+          <p>Tratamientos estéticos y de cuidado de la piel orientados a mejorar salud cutánea, apariencia y confianza, con atención profesional.</p>
+          <a href="#" class="service-link">Conocer más →</a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-visual v6">
+          <div class="service-icon">
+            <svg class="svg-icon" style="stroke:var(--teal-800)" viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 0-5 5c0 3 2 5 2 8 0 2-1 4-1 6 1 2 3 1 4 0 1-2 1-4 0-6 1 2 1 4 0 6 1 1 3 2 4 0 0-2-1-4-1-6 0-3 2-5 2-8a5 5 0 0 0-5-5z"/></svg>
+          </div>
+        </div>
+        <div class="service-body">
+          <h3>Odontología</h3>
+          <p>Odontología general, odontopediatría y especialidad maxilofacial con atención integral para pacientes de todas las edades.</p>
+          <a href="#" class="service-link">Conocer más →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials section">
+  <div class="container">
+    <div class="section-header">
+      <span class="overline">Lo que dicen nuestros pacientes</span>
+      <h2>Historias reales de recuperación.</h2>
+      <p>Porque cada paciente es diferente, cada plan lo es también. Estas son algunas experiencias que nos han compartido.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <p class="testimonial-quote">"Llegué con dolor lumbar constante y en pocas sesiones noté un cambio real. Me explicaron el plan con claridad y cada ejercicio tuvo sentido."</p>
+        <div class="testimonial-meta">
+          <div class="testimonial-avatar">MG</div>
+          <div>
+            <div class="testimonial-name">María G., 33 años</div>
+            <div class="testimonial-service">Fisioterapia</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <p class="testimonial-quote">"Me rehabilitaron después de una lesión de rodilla. El seguimiento fue excelente y el tratamiento totalmente personalizado. Volví a entrenar con confianza."</p>
+        <div class="testimonial-meta">
+          <div class="testimonial-avatar">CR</div>
+          <div>
+            <div class="testimonial-name">Carlos R., 28 años</div>
+            <div class="testimonial-service">Fisioterapia deportiva</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <p class="testimonial-quote">"Lo que más valoro es el enfoque integral. Me revisaron de forma completa y ajustaron el tratamiento según mi evolución. Se nota la experiencia del equipo."</p>
+        <div class="testimonial-meta">
+          <div class="testimonial-avatar">EL</div>
+          <div>
+            <div class="testimonial-name">Ernesto L., 62 años</div>
+            <div class="testimonial-service">Atención integral</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <p class="testimonial-quote">"La valoración fue muy completa y me orientaron con un tratamiento claro. Me gustó que se tomaron el tiempo para escucharme y resolver mis dudas."</p>
+        <div class="testimonial-meta">
+          <div class="testimonial-avatar">LP</div>
+          <div>
+            <div class="testimonial-name">Lucía P., 41 años</div>
+            <div class="testimonial-service">Consulta médica</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Visit -->
+<section class="visit section">
+  <div class="container">
+    <div class="visit-grid">
+      <div class="visit-info">
+        <span class="overline">Visítanos</span>
+        <h2 style="margin-top:16px">Estamos en el corazón de Cuautla.</h2>
+        <p style="color:var(--text-secondary);font-size:17px;line-height:1.65;margin-top:20px">
+          Nuestra clínica cuenta con instalaciones completas: gimnasio terapéutico, hidroterapia,
+          consultorios de valoración y espacios multisensoriales.
+        </p>
+        <div class="visit-details">
+          <div class="visit-detail">
+            <div class="visit-detail-icon">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <strong>Dirección</strong>
+              <p>Calle Niño Artillero No. 40<br>Colonia 19 de Febrero<br>Cuautla, Morelos, 62756</p>
+            </div>
+          </div>
+          <div class="visit-detail">
+            <div class="visit-detail-icon">
+              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <strong>Teléfono · WhatsApp</strong>
+              <p>+52 735 531 6111</p>
+            </div>
+          </div>
+          <div class="visit-detail">
+            <div class="visit-detail-icon">
+              <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <strong>Horario</strong>
+              <p>Lunes a Sábado · 8:00 a.m. – 8:00 p.m.</p>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap">
+          <a href="#" class="btn btn-primary btn-lg">Agendar cita</a>
+          <a href="https://wa.me/527355316111" class="btn btn-accent btn-lg">Escríbenos por WhatsApp</a>
+        </div>
+      </div>
+      <div class="visit-map">
+        <div class="visit-map-pin"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <span class="logo-mark">B</span>
+          <span>Biomotion</span>
+        </a>
+        <p>Clínica integral especializada en rehabilitación, movimiento y bienestar físico. Basada en evidencia. Diseñada para ti.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Clínica</h4>
+        <ul>
+          <li><a href="#">Quiénes somos</a></li>
+          <li><a href="#">Instalaciones</a></li>
+          <li><a href="#">Equipo</a></li>
+          <li><a href="#">Testimonios</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#">Fisioterapia</a></li>
+          <li><a href="#">Consulta médica</a></li>
+          <li><a href="#">Nutrición</a></li>
+          <li><a href="#">Psicología</a></li>
+          <li><a href="#">Cosmetología</a></li>
+          <li><a href="#">Odontología</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+527355316111">735 531 6111</a></li>
+          <li><a href="mailto:clinicabiomotion@gmail.com">clinicabiomotion@gmail.com</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Clínica Integral Biomotion. Todos los derechos reservados.</span>
+      <span style="display:flex;gap:24px">
+        <a href="#">Aviso de privacidad</a>
+        <a href="#">Términos</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
