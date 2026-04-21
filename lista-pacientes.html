@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=fraunces:400,500,600|figtree:400,500,600,700|ibm-plex-mono:400,500" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
+<script defer src="js/app.js"></script>
 </head>
 <body>
 <div class="app">
@@ -52,10 +53,10 @@
         </div>
         <div class="page-actions">
           <div class="tab-group">
-            <button class="tab active">Todos</button>
-            <button class="tab">Activos</button>
-            <button class="tab">Alertas</button>
-            <button class="tab">Alta</button>
+            <button class="tab active" data-filter="all">Todos</button>
+            <button class="tab" data-filter="active">Activos</button>
+            <button class="tab" data-filter="alert">Alertas</button>
+            <button class="tab" data-filter="discharged">Alta</button>
           </div>
         </div>
       </div>
@@ -75,7 +76,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr data-status="alert active">
                 <td><div class="patient-cell"><div class="patient-avatar">MG</div><div><div class="patient-name">María García Hernández</div><div class="patient-mrn">MRN-2026-0481 · 33 años</div></div></div></td>
                 <td><span class="badge badge-critical"><span class="dot"></span>ALERGIA</span></td>
                 <td>Dr. Rodríguez</td>
@@ -84,7 +85,7 @@
                 <td class="num">22 abr · 10:00</td>
                 <td class="actions"><a href="perfil-paciente.html" class="btn btn-secondary btn-sm">Ver</a></td>
               </tr>
-              <tr>
+              <tr data-status="active">
                 <td><div class="patient-cell"><div class="patient-avatar teal">CR</div><div><div class="patient-name">Carlos Ramírez López</div><div class="patient-mrn">MRN-2026-0479 · 28 años</div></div></div></td>
                 <td><span class="badge badge-ok"><span class="dot"></span>EN TRATAMIENTO</span></td>
                 <td>Dra. Morales</td>
@@ -93,7 +94,7 @@
                 <td class="num">19 abr · 15:30</td>
                 <td class="actions"><a href="perfil-paciente.html" class="btn btn-secondary btn-sm">Ver</a></td>
               </tr>
-              <tr>
+              <tr data-status="alert active">
                 <td><div class="patient-cell"><div class="patient-avatar">LP</div><div><div class="patient-name">Lucía Pérez Domínguez</div><div class="patient-mrn">MRN-2026-0478 · 41 años</div></div></div></td>
                 <td><span class="badge badge-warning"><span class="dot"></span>REVALORACIÓN</span></td>
                 <td>Dr. Rodríguez</td>
@@ -102,7 +103,7 @@
                 <td class="num">—</td>
                 <td class="actions"><a href="perfil-paciente.html" class="btn btn-secondary btn-sm">Ver</a></td>
               </tr>
-              <tr>
+              <tr data-status="active">
                 <td><div class="patient-cell"><div class="patient-avatar teal">JA</div><div><div class="patient-name">Jorge Arellano Vega</div><div class="patient-mrn">MRN-2026-0473 · 55 años</div></div></div></td>
                 <td><span class="badge badge-info"><span class="dot"></span>NUTRICIÓN</span></td>
                 <td>Dra. Salinas</td>
@@ -111,7 +112,7 @@
                 <td class="num">24 abr · 09:00</td>
                 <td class="actions"><a href="perfil-paciente.html" class="btn btn-secondary btn-sm">Ver</a></td>
               </tr>
-              <tr>
+              <tr data-status="active">
                 <td><div class="patient-cell"><div class="patient-avatar">SM</div><div><div class="patient-name">Sofía Méndez Ortiz</div><div class="patient-mrn">MRN-2026-0468 · 29 años</div></div></div></td>
                 <td><span class="badge badge-ok"><span class="dot"></span>EN TRATAMIENTO</span></td>
                 <td>Psic. Luna</td>
@@ -120,7 +121,7 @@
                 <td class="num">22 abr · 17:00</td>
                 <td class="actions"><a href="perfil-paciente.html" class="btn btn-secondary btn-sm">Ver</a></td>
               </tr>
-              <tr>
+              <tr data-status="discharged">
                 <td><div class="patient-cell"><div class="patient-avatar teal">EL</div><div><div class="patient-name">Ernesto López Cruz</div><div class="patient-mrn">MRN-2026-0451 · 62 años</div></div></div></td>
                 <td><span class="badge badge-neutral"><span class="dot"></span>ALTA</span></td>
                 <td>Dr. Rodríguez</td>
@@ -129,7 +130,7 @@
                 <td class="num">—</td>
                 <td class="actions"><a href="perfil-paciente.html" class="btn btn-secondary btn-sm">Ver</a></td>
               </tr>
-              <tr>
+              <tr data-status="active">
                 <td><div class="patient-cell"><div class="patient-avatar">RD</div><div><div class="patient-name">Roberto Díaz Hernández</div><div class="patient-mrn">MRN-2026-0449 · 44 años</div></div></div></td>
                 <td><span class="badge badge-ok"><span class="dot"></span>EN TRATAMIENTO</span></td>
                 <td>Dra. Morales</td>
@@ -138,7 +139,7 @@
                 <td class="num">20 abr · 10:30</td>
                 <td class="actions"><a href="perfil-paciente.html" class="btn btn-secondary btn-sm">Ver</a></td>
               </tr>
-              <tr>
+              <tr data-status="alert active">
                 <td><div class="patient-cell"><div class="patient-avatar teal">PV</div><div><div class="patient-name">Patricia Vega Morales</div><div class="patient-mrn">MRN-2026-0445 · 38 años</div></div></div></td>
                 <td><span class="badge badge-info"><span class="dot"></span>VALORACIÓN</span></td>
                 <td>Dr. Rodríguez</td>

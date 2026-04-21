@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=fraunces:400,500,600|figtree:400,500,600,700|ibm-plex-mono:400,500" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
+<script defer src="js/app.js"></script>
 </head>
 <body>
 <div class="app">
@@ -52,10 +53,10 @@
         </div>
         <div class="page-actions">
           <div class="tab-group">
-            <button class="tab active">Todos</button>
-            <button class="tab">AINE</button>
-            <button class="tab">Vitaminas</button>
-            <button class="tab">Antibióticos</button>
+            <button class="tab active" data-filter="all">Todos</button>
+            <button class="tab" data-filter="aine">AINE</button>
+            <button class="tab" data-filter="vitamina">Vitaminas</button>
+            <button class="tab" data-filter="antibiotico">Antibióticos</button>
           </div>
         </div>
       </div>
@@ -83,7 +84,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr data-status="aine">
                 <td><div><div style="font-weight:500;color:var(--text-primary)">Naproxeno 500 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">NAP-500</div></div></td>
                 <td>AINE</td>
                 <td>Pisa</td>
@@ -93,7 +94,7 @@
                 <td><span class="badge badge-warning"><span class="dot"></span>STOCK BAJO</span></td>
                 <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
               </tr>
-              <tr>
+              <tr data-status="analgesico">
                 <td><div><div style="font-weight:500;color:var(--text-primary)">Paracetamol 500 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">PAR-500</div></div></td>
                 <td>Analgésico</td>
                 <td>Liomont</td>
@@ -103,7 +104,7 @@
                 <td><span class="badge badge-ok"><span class="dot"></span>OK</span></td>
                 <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
               </tr>
-              <tr>
+              <tr data-status="ibp">
                 <td><div><div style="font-weight:500;color:var(--text-primary)">Omeprazol 20 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">OME-20</div></div></td>
                 <td>IBP</td>
                 <td>Roche</td>
@@ -113,7 +114,7 @@
                 <td><span class="badge badge-ok"><span class="dot"></span>OK</span></td>
                 <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
               </tr>
-              <tr>
+              <tr data-status="vitamina">
                 <td><div><div style="font-weight:500;color:var(--text-primary)">Vitamina D3 2000 UI</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">VITD3</div></div></td>
                 <td>Vitamina</td>
                 <td>Bayer</td>
@@ -123,7 +124,7 @@
                 <td><span class="badge badge-ok"><span class="dot"></span>OK</span></td>
                 <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
               </tr>
-              <tr>
+              <tr data-status="aine">
                 <td><div><div style="font-weight:500;color:var(--text-primary)">Ibuprofeno 400 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">IBU-400</div></div></td>
                 <td>AINE</td>
                 <td>Pisa</td>
@@ -133,7 +134,7 @@
                 <td><span class="badge badge-warning"><span class="dot"></span>STOCK BAJO</span></td>
                 <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
               </tr>
-              <tr>
+              <tr data-status="mineral">
                 <td><div><div style="font-weight:500;color:var(--text-primary)">Magnesio 400 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">MAG-400</div></div></td>
                 <td>Mineral</td>
                 <td>Pfizer</td>
@@ -143,7 +144,7 @@
                 <td><span class="badge badge-ok"><span class="dot"></span>OK</span></td>
                 <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
               </tr>
-              <tr>
+              <tr data-status="aine">
                 <td><div><div style="font-weight:500;color:var(--text-primary)">Diclofenaco gel 1%</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">DIC-GEL</div></div></td>
                 <td>AINE tópico</td>
                 <td>Novartis</td>
@@ -153,7 +154,7 @@
                 <td><span class="badge badge-ok"><span class="dot"></span>OK</span></td>
                 <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
               </tr>
-              <tr>
+              <tr data-status="hipoglucemiante">
                 <td><div><div style="font-weight:500;color:var(--text-primary)">Metformina 500 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">MET-500</div></div></td>
                 <td>Hipoglucemiante</td>
                 <td>Sanofi</td>
@@ -163,7 +164,7 @@
                 <td><span class="badge badge-warning"><span class="dot"></span>STOCK BAJO</span></td>
                 <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
               </tr>
-              <tr>
+              <tr data-status="suplemento">
                 <td><div><div style="font-weight:500;color:var(--text-primary)">Colágeno hidrolizado</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">COL-HID</div></div></td>
                 <td>Suplemento</td>
                 <td>Vitapack</td>
@@ -173,7 +174,7 @@
                 <td><span class="badge badge-critical"><span class="dot"></span>POR VENCER</span></td>
                 <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
               </tr>
-              <tr>
+              <tr data-status="antibiotico">
                 <td><div><div style="font-weight:500;color:var(--text-primary)">Amoxicilina 500 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">AMO-500</div></div></td>
                 <td>Antibiótico</td>
                 <td>Bayer</td>
@@ -183,7 +184,7 @@
                 <td><span class="badge badge-ok"><span class="dot"></span>OK</span></td>
                 <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
               </tr>
-              <tr>
+              <tr data-status="antihistaminico">
                 <td><div><div style="font-weight:500;color:var(--text-primary)">Loratadina 10 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">LOR-10</div></div></td>
                 <td>Antihistamínico</td>
                 <td>Liomont</td>
@@ -193,7 +194,7 @@
                 <td><span class="badge badge-ok"><span class="dot"></span>OK</span></td>
                 <td class="actions"><a href="formulario-medicina.html" class="btn btn-secondary btn-sm">Editar</a></td>
               </tr>
-              <tr>
+              <tr data-status="benzodiacepina">
                 <td><div><div style="font-weight:500;color:var(--text-primary)">Clonazepam 0.5 mg</div><div style="font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono)">CLO-05</div></div></td>
                 <td>Benzodiacepina</td>
                 <td>Roche</td>
